@@ -35,7 +35,7 @@ struct NetWorking {
     
     let session = URLSession.shared
     //let urlString = "https://jsonplaceholder.typicode.com/todos/10"
-    let urlPlanets = "https://swapi.dev/api/planets/1"
+    //let urlPlanets = "https://swapi.dev/api/planets/1"
     
     func getTitleJSON(urlString: String, searchItem: String, completion: @escaping (Result<String, NetWorkError>) -> Void) {
         
@@ -72,9 +72,9 @@ struct NetWorking {
     }
  
     
-    func getPeriodePlanete(completion: @escaping (Result<Planets, NetWorkError>) -> Void) {
+    func getPeriodePlanete(urlString: String, searchPlanet: String, completion: @escaping (Result<Planets, NetWorkError>) -> Void) {
         
-        guard let url = URL(string: urlPlanets) else {
+        guard let url = URL(string: urlString) else {
             completion(.failure(.invaliddURL))
             return
         }
@@ -89,7 +89,7 @@ struct NetWorking {
                 let decoder = JSONDecoder()
                 let anwswer = try decoder.decode(Planets.self, from: jsonData)
                 
-                guard anwswer.name == "Tatooine" else {
+                guard anwswer.name == "\(searchPlanet)" else {
                     completion(.failure(.noData))
                     return
                 }

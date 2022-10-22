@@ -33,7 +33,7 @@ class NameOfResidencePlaneteCell: UITableViewCell {
         
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
             nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
         ])

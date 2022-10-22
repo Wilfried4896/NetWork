@@ -80,18 +80,18 @@ class InfoViewController: UIViewController {
             planeteLabel.trailingAnchor.constraint(equalTo: area.trailingAnchor, constant: -10),
             
             tableNameView.topAnchor.constraint(equalTo: planeteLabel.bottomAnchor, constant: 5),
-            tableNameView.leadingAnchor.constraint(equalTo: area.leadingAnchor, constant: 5),
-            tableNameView.trailingAnchor.constraint(equalTo: area.trailingAnchor, constant: -5),
-            tableNameView.bottomAnchor.constraint(equalTo: area.bottomAnchor),
+            tableNameView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableNameView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableNameView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
         ])
         
-        NetWorking.sharedInstance.getTitleJSON(urlString: "https://jsonplaceholder.typicode.com/todos/1", searchItem: "title") { result in
+        NetWorking.sharedInstance.getTitleJSON(urlString: "https://jsonplaceholder.typicode.com/todos/1", searchItem: "title") { [weak self] result in
             switch result {
             case .success(let titleString):
                 
                 DispatchQueue.main.async {
-                    self.titleLabel.text = titleString
+                    self?.titleLabel.text = titleString
                 }
                 
             case .failure(let error):
@@ -99,7 +99,7 @@ class InfoViewController: UIViewController {
             }
         }
         
-        NetWorking.sharedInstance.getPeriodePlanete { [weak self] result in
+        NetWorking.sharedInstance.getPeriodePlanete(urlString: "https://swapi.dev/api/planets/1", searchPlanet: "Tatooine") { [weak self] result in
             switch result {
             case .success(let planete):
 
