@@ -18,11 +18,22 @@ class FeedCoordinator: Coordinator {
     }
     
     func start() {
+        goToFeed()
+    }
+    
+    func goToFeed() {
         let feedVC = FeedViewController()
+        feedVC.coordinator = self
         navigationController.pushViewController(feedVC, animated: true)
+    }
+    
+    
+    func goToInfo() {
+        let vc = InfoViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
     }
 }
 
-extension FeedViewController {
-    
-}
+
+

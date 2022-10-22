@@ -8,28 +8,15 @@
 import UIKit
 
 enum AppConfiguration: String {
-    case people
-    case starships
-    case planets
-}
-
-extension AppConfiguration: CustomStringConvertible {
-    var description: String {
-        switch self {
-        case.people:
-            return "https://swapi.dev/api/people/8"
-        case .planets:
-            return "https://swapi.dev/api/planets/5"
-        case.starships:
-            return "https://swapi.dev/api/starships/3"
-        }
-    }
+    case people = "https://swapi.dev/api/people/8"
+    case starships = "https://swapi.dev/api/planets/5"
+    case planets = "https://swapi.dev/api/starships/3"
 }
 
 struct NetworkManager {
     static func request(for configuration: AppConfiguration) {
         
-        guard let url = URL(string: configuration.description) else {
+        guard let url = URL(string: configuration.rawValue) else {
             print("FailResquest")
             return
         }
@@ -75,9 +62,7 @@ class AppCoordinator: Coordinator {
     func start() {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        goToLogin()
-        
-        NetworkManager.request(for: .people)
+        goToHome()
     }
 
     func goToLogin() {

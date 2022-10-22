@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EC04F88C285871CC000D11AD /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC04F88B285871CC000D11AD /* PostTableViewCell.swift */; };
+		EC05B67B2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC05B67A2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift */; };
 		EC13E9C328E8DD3E00059FB4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC13E9C228E8DD3E00059FB4 /* CustomButton.swift */; };
 		EC3E5BCB28E1D65D009B3ABE /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = EC3E5BCA28E1D65D009B3ABE /* iOSIntPackage */; };
 		EC49F72428EA077500AE1946 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F72328EA077500AE1946 /* CustomTextField.swift */; };
@@ -28,6 +29,7 @@
 		EC61DE6E28D6141A00763700 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC61DE6828D6141A00763700 /* StorageService.framework */; };
 		EC61DE6F28D6141A00763700 /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC61DE6828D6141A00763700 /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC61DE7428D6152D00763700 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC04F88D2858BA9B000D11AD /* Post.swift */; };
+		EC6D5EAE29031BAA001ED565 /* NetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6D5EAD29031BAA001ED565 /* NetWork.swift */; };
 		EC819988284B752F00BB7EC8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC819987284B752F00BB7EC8 /* InfoViewController.swift */; };
 		EC819992284DC59300BB7EC8 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC819991284DC59300BB7EC8 /* ProfileHeaderView.swift */; };
 		EC8DEF60285CA53D00B25A65 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */; };
@@ -70,6 +72,7 @@
 /* Begin PBXFileReference section */
 		EC04F88B285871CC000D11AD /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		EC04F88D2858BA9B000D11AD /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		EC05B67A2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameOfResidencePlaneteCell.swift; sourceTree = "<group>"; };
 		EC13E9C228E8DD3E00059FB4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		EC49F72328EA077500AE1946 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		EC49F72528EA09D700AE1946 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
@@ -87,6 +90,7 @@
 		EC61A0AC28605895002041E3 /* MyCostumCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCostumCollectionCell.swift; sourceTree = "<group>"; };
 		EC61DE6828D6141A00763700 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC61DE6A28D6141A00763700 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
+		EC6D5EAD29031BAA001ED565 /* NetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWork.swift; sourceTree = "<group>"; };
 		EC819987284B752F00BB7EC8 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		EC819991284DC59300BB7EC8 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 			children = (
 				EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */,
 				EC04F88B285871CC000D11AD /* PostTableViewCell.swift */,
+				EC05B67A2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 				ECA2B87F28D9D1F2003677D1 /* User.swift */,
 				EC49F72528EA09D700AE1946 /* FeedModel.swift */,
 				EC49F77228EC568300AE1946 /* LoginModel.swift */,
+				EC6D5EAD29031BAA001ED565 /* NetWork.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -461,6 +467,7 @@
 				EC49F76328EC3D0600AE1946 /* ProfileCoordinator.swift in Sources */,
 				EC49F76128EC39B800AE1946 /* HomeTabBarCoordinator.swift in Sources */,
 				ECDE86CB2848F6D3004A0B1E /* PostViewController.swift in Sources */,
+				EC6D5EAE29031BAA001ED565 /* NetWork.swift in Sources */,
 				EC61A0AD28605895002041E3 /* MyCostumCollectionCell.swift in Sources */,
 				EC49F75F28EC38D600AE1946 /* LoginCoordinator.swift in Sources */,
 				EC49F72628EA09D700AE1946 /* FeedModel.swift in Sources */,
@@ -472,6 +479,7 @@
 				EC8DEF64285CC0AF00B25A65 /* PhotosCollectionViewCell.swift in Sources */,
 				EC49F76528EC3D1B00AE1946 /* FeedCoordinator.swift in Sources */,
 				EC49F77528EC5F5100AE1946 /* Binding.swift in Sources */,
+				EC05B67B2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift in Sources */,
 				EC49F75328EB747400AE1946 /* Coordinator.swift in Sources */,
 				ECA2B88028D9D1F2003677D1 /* User.swift in Sources */,
 				ECDE86D12848F7FD004A0B1E /* FeedViewController.swift in Sources */,

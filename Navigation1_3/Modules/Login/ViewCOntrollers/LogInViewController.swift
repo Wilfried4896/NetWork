@@ -27,9 +27,14 @@ class LogInViewController: UIViewController {
     
     private lazy var scrollViewLogin: UIScrollView = {
         let scrollLogin = UIScrollView()
-        
         scrollLogin.translatesAutoresizingMaskIntoConstraints = false
         return scrollLogin
+    }()
+    
+    private lazy var contentView: UIView = {
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        return contentView
     }()
 
     private lazy var logoVk: UIImageView = {
@@ -92,58 +97,68 @@ class LogInViewController: UIViewController {
     
     
     private func setUpLogInView() {
-        self.view.backgroundColor = .white
-        self.view.addSubview(scrollViewLogin)
-
-        [logoVk, emailLogin, passwordLogin, logInButton, buttonGetPassword, activityIndicator].forEach({
-            self.scrollViewLogin.addSubview($0)
-        })
+        view.backgroundColor = .white
+        view.addSubview(scrollViewLogin)
+        scrollViewLogin.addSubview(contentView)
+        
+        contentView.addSubview(logoVk)
+        contentView.addSubview(emailLogin)
+        contentView.addSubview(passwordLogin)
+        contentView.addSubview(logInButton)
+        //contentView.addSubview(logoVk)
 
         actionButton()
         self.navigationController?.navigationBar.isHidden = true
-
+        let area = self.view.safeAreaLayoutGuide
+        
         NSLayoutConstraint.activate([
             // scrollViewLoginConstraint
-            scrollViewLogin.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollViewLogin.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollViewLogin.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollViewLogin.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollViewLogin.topAnchor.constraint(equalTo:  area.topAnchor),
+            scrollViewLogin.leadingAnchor.constraint(equalTo: area.leadingAnchor),
+            scrollViewLogin.trailingAnchor.constraint(equalTo: area.trailingAnchor),
+            scrollViewLogin.bottomAnchor.constraint(equalTo: area.bottomAnchor),
+            
+            contentView.topAnchor.constraint(equalTo: scrollViewLogin.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollViewLogin.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollViewLogin.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollViewLogin.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollViewLogin.widthAnchor),
             
             // logoVkConstraints
-            logoVk.topAnchor.constraint(equalTo: scrollViewLogin.topAnchor, constant: 120),
-            logoVk.centerXAnchor.constraint(equalTo: scrollViewLogin.centerXAnchor),
+            logoVk.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120),
+            logoVk.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             logoVk.heightAnchor.constraint(equalToConstant: 100),
             logoVk.widthAnchor.constraint(equalToConstant: 100),
 
             // emailLoginConstraints
             emailLogin.topAnchor.constraint(equalTo: logoVk.bottomAnchor, constant: 120),
-            emailLogin.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            emailLogin.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            emailLogin.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            emailLogin.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             emailLogin.heightAnchor.constraint(equalToConstant: 50),
 
             // passwordLoginConstraints
             passwordLogin.topAnchor.constraint(equalTo: emailLogin.bottomAnchor),
-            passwordLogin.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            passwordLogin.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            passwordLogin.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            passwordLogin.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             passwordLogin.heightAnchor.constraint(equalToConstant: 50),
             
             // activityIndicator
 
-            activityIndicator.centerYAnchor.constraint(equalTo: passwordLogin.centerYAnchor),
-            activityIndicator.centerXAnchor.constraint(equalTo: passwordLogin.centerXAnchor),
+//            activityIndicator.centerYAnchor.constraint(equalTo: passwordLogin.centerYAnchor),
+//            activityIndicator.centerXAnchor.constraint(equalTo: passwordLogin.centerXAnchor),
 
             // logInButtonConstraints
             logInButton.heightAnchor.constraint(equalToConstant: 50),
-            logInButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            logInButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             logInButton.topAnchor.constraint(equalTo: passwordLogin.bottomAnchor, constant: 16),
             
             // buttonGetPassword
-            buttonGetPassword.heightAnchor.constraint(equalToConstant: 50),
+/*            buttonGetPassword.heightAnchor.constraint(equalToConstant: 50),
             buttonGetPassword.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             buttonGetPassword.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             buttonGetPassword.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
-            
+*/
         ])
     }
     
