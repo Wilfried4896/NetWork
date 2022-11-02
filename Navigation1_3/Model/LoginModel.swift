@@ -6,43 +6,34 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 protocol LoginViewControllerDelegate {
-    func check(loginUser: String, passwordUser: String) -> Bool
-}
-
-// фабрика
-protocol LoginFactory {
-    func makeLoginInspector() -> LoginInspector
-}
-
-struct MyLoginFactory: LoginFactory {
-    let loginInspector: LoginInspector
-    
-    func makeLoginInspector() -> LoginInspector {
-        return loginInspector
-    }
+    func checkCredentials(_ email: String, _ password: String, _ complition: @escaping ((Result<(String), AuthErrorCode>) -> Void))
+    func signUp(_ email: String, _ password: String)
 }
 
 struct LoginInspector: LoginViewControllerDelegate {
+  
+    let checkerService = CheckerService()
     
-    func check(loginUser: String, passwordUser: String) -> Bool {
-        Checker.shared.check(loginUser: loginUser, passwordUser: passwordUser)
+    func checkCredentials(_ email: String, _ password: String, _ complition: @escaping ((Result<(String), AuthErrorCode>) -> Void)) {
+        checkerService.checkCredentials(email, password) { auth in
+            switch auth {
+            case .success(let auth):
+                complition(.success(auth))
+            case .failure(let error):
+                complition(.failure(error))
+            }
+        }
     }
-}
 
-
-class Checker: LoginViewControllerDelegate {
+//    func checkCredentials(_ email: String, _ password: String) {
+//        checkerService.checkCredentials(email, password)
+//    }
     
-    static let shared = Checker()
-    
-    private init() {}
-    
-    var login: String = ""
-    var password: String = ""
-    
-    func check(loginUser: String, passwordUser: String) -> Bool {
-        return loginUser == login && passwordUser == password
+    func signUp(_ email: String, _ password: String) {
+        checkerService.signUp(email, password)
     }
 }
 

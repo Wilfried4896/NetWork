@@ -7,6 +7,7 @@
 
 import UIKit
 import StorageService
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
@@ -102,9 +103,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
             case 0:
-                guard  let profileHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "Profile") as? ProfileHeaderView else { return nil }
+            let user = Auth.auth().currentUser
+                guard  let profileHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "Profile") as? ProfileHeaderView, user != nil else { return nil }
                 tableView.backgroundColor = .systemGroupedBackground
                 profileHeader.configurationProfile(profile: userCurrent)
+                profileHeader.fullNameLabel.text = user?.email
                 return profileHeader
 
             default:

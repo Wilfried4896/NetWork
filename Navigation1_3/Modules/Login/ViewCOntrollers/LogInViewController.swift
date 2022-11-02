@@ -6,36 +6,27 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-enum ApiError: Error {
-    case loginError
+enum ApiError: String, Error {
+    case loginError = "Логин или пароль некорректен"
 }
 
-extension ApiError: CustomStringConvertible {
-    var description: String {
-        switch self {
-        case.loginError:
-            return "Логин или пароль некорректен"
-        }
-    }
+public func showMessage() {
+    
 }
 
 class LogInViewController: UIViewController {
 
-    var loginDelegate: LoginFactory?
-    var viewModel: LoginNavigation?
+    var loginDelegate: LoginViewControllerDelegate?
+    var viewModel: LoginViewModel?
     
-    private lazy var scrollViewLogin: UIScrollView = {
-        let scrollLogin = UIScrollView()
-        scrollLogin.translatesAutoresizingMaskIntoConstraints = false
-        return scrollLogin
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
     }()
-    
-    private lazy var contentView: UIView = {
-        let contentView = UIView()
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        return contentView
-    }()
+
 
     private lazy var logoVk: UIImageView = {
         let logo = UIImageView()
@@ -63,21 +54,18 @@ class LogInViewController: UIViewController {
     private lazy var logInButton: CustomButton = {
         let logIn = CustomButton(title: "Log In",bgColor: UIColor(patternImage: UIImage(named: "blue_pixel")!) ,tilteColor: .white)
         logIn.layer.cornerRadius = 10
-        
         return logIn
     }()
     
     private lazy var buttonGetPassword: CustomButton = {
         let getPassword = CustomButton(title: "Подобрать пароль", bgColor: .systemBlue, tilteColor: .white)
         getPassword.layer.cornerRadius = 10
-        
         return getPassword
     }()
     
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator.color = UIColor(patternImage: UIImage(named: "blue_pixel")!)
-        
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         return activityIndicator
     }()
@@ -97,69 +85,53 @@ class LogInViewController: UIViewController {
     
     
     private func setUpLogInView() {
-        view.backgroundColor = .white
-        view.addSubview(scrollViewLogin)
-        scrollViewLogin.addSubview(contentView)
         
-        contentView.addSubview(logoVk)
-        contentView.addSubview(emailLogin)
-        contentView.addSubview(passwordLogin)
-        contentView.addSubview(logInButton)
-        //contentView.addSubview(logoVk)
+        view.backgroundColor = .white
+        view.addSubview(scrollView)
+        
+        scrollView.addSubview(logoVk)
+        scrollView.addSubview(emailLogin)
+        scrollView.addSubview(passwordLogin)
+        scrollView.addSubview(logInButton)
 
+        
         actionButton()
-        self.navigationController?.navigationBar.isHidden = true
-        let area = self.view.safeAreaLayoutGuide
+        //self.logInButton.isHidden = true
+        navigationController?.navigationBar.isHidden = true
+        let area = view.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
             // scrollViewLoginConstraint
-            scrollViewLogin.topAnchor.constraint(equalTo:  area.topAnchor),
-            scrollViewLogin.leadingAnchor.constraint(equalTo: area.leadingAnchor),
-            scrollViewLogin.trailingAnchor.constraint(equalTo: area.trailingAnchor),
-            scrollViewLogin.bottomAnchor.constraint(equalTo: area.bottomAnchor),
-            
-            contentView.topAnchor.constraint(equalTo: scrollViewLogin.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: scrollViewLogin.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: scrollViewLogin.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollViewLogin.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollViewLogin.widthAnchor),
+            scrollView.topAnchor.constraint(equalTo:  area.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: area.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: area.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: area.bottomAnchor),
             
             // logoVkConstraints
-            logoVk.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120),
-            logoVk.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            logoVk.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 120),
+            logoVk.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             logoVk.heightAnchor.constraint(equalToConstant: 100),
             logoVk.widthAnchor.constraint(equalToConstant: 100),
 
             // emailLoginConstraints
             emailLogin.topAnchor.constraint(equalTo: logoVk.bottomAnchor, constant: 120),
-            emailLogin.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            emailLogin.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            emailLogin.leadingAnchor.constraint(equalTo: area.leadingAnchor, constant: 16),
+            emailLogin.trailingAnchor.constraint(equalTo: area.trailingAnchor, constant: -16),
             emailLogin.heightAnchor.constraint(equalToConstant: 50),
 
             // passwordLoginConstraints
             passwordLogin.topAnchor.constraint(equalTo: emailLogin.bottomAnchor),
-            passwordLogin.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            passwordLogin.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            passwordLogin.leadingAnchor.constraint(equalTo: area.leadingAnchor, constant: 16),
+            passwordLogin.trailingAnchor.constraint(equalTo: area.trailingAnchor, constant: -16),
             passwordLogin.heightAnchor.constraint(equalToConstant: 50),
-            
-            // activityIndicator
-
-//            activityIndicator.centerYAnchor.constraint(equalTo: passwordLogin.centerYAnchor),
-//            activityIndicator.centerXAnchor.constraint(equalTo: passwordLogin.centerXAnchor),
 
             // logInButtonConstraints
             logInButton.heightAnchor.constraint(equalToConstant: 50),
-            logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            logInButton.leadingAnchor.constraint(equalTo: area.leadingAnchor, constant: 16),
+            logInButton.trailingAnchor.constraint(equalTo: area.trailingAnchor, constant: -16),
             logInButton.topAnchor.constraint(equalTo: passwordLogin.bottomAnchor, constant: 16),
-            
-            // buttonGetPassword
-/*            buttonGetPassword.heightAnchor.constraint(equalToConstant: 50),
-            buttonGetPassword.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            buttonGetPassword.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            buttonGetPassword.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
-*/
         ])
+
     }
     
     func parametrTextField() -> UITextField {
@@ -188,7 +160,7 @@ class LogInViewController: UIViewController {
 
             let yOffet = keyboardOriginY < logInButtonPositionY ? logInButtonPositionY - keyboardOriginY + 15 : 0
 
-            self.scrollViewLogin.contentOffset = CGPoint(x: 0, y: yOffet)
+            self.scrollView.contentOffset = CGPoint(x: 0, y: yOffet)
         }
     }
 
@@ -198,42 +170,59 @@ class LogInViewController: UIViewController {
 
     @objc func forcedHidingKeyboard() {
         self.view.endEditing(true)
-        self.scrollViewLogin.contentOffset = CGPoint(x: 0, y: 0)
+        self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
     }
 
-    func loadUser(_ emailLogin: String, _ passwordLogin: String) throws {
-        
-        let loginInspector = self.loginDelegate?.makeLoginInspector()
-        let verifiedCurrent = loginInspector?.check(loginUser: emailLogin, passwordUser: passwordLogin)
-        
-        guard let verifiedCurrent else { return }
-        guard verifiedCurrent else {
-            throw ApiError.loginError
-        }
-        self.viewModel?.goToHome()
+//    func loadUser(_ emailLogin: String, _ passwordLogin: String) throws {
+//
+//        let loginInspector = self.loginDelegate?.makeLoginInspector()
+//        let verifiedCurrent = loginInspector?.check(loginUser: emailLogin, passwordUser: passwordLogin)
+//
+//        guard let verifiedCurrent, verifiedCurrent else {
+//            throw ApiError.loginError
+//        }
+//
+//        self.viewModel?.goToHome()
+//    }
+    
+    func ShowAlert(_ title: String, _ message: String) {
+        let messageError = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        messageError.addAction(UIAlertAction(title: "OK", style: .destructive))
+        present(messageError, animated: true)
     }
     
     private func actionButton() {
         logInButton.actionButton = {
+
+            guard let email = self.emailLogin.text, !email.isEmpty,
+                    let password = self.passwordLogin.text, !password.isEmpty else {
+                self.ShowAlert("Error", "Email/Paasword пусой")
+                return
+            }
             
-            guard let emailLogin = self.emailLogin.text, let passwordLogin = self.passwordLogin.text else { return }
-            
-            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
-                do {
-                    try self.loadUser(emailLogin, passwordLogin)
-                } catch {
-                    if let error = error as? ApiError {
-                        let messageError = UIAlertController(title: "Внимание", message: error.description, preferredStyle: .actionSheet)
-                        let actionMessage = UIAlertAction(title: "OK", style: .destructive)
+            self.loginDelegate?.checkCredentials(email, password, { auth in
+                switch auth {
+                case .success(_):
+                    self.viewModel?.goToHome()
+                case .failure(let error):
+                    switch error.code {
+                    case .userNotFound:
+                        let message = UIAlertController(title: "Аккаунт не найден", message: "Хотите создать его", preferredStyle: .alert)
+                        message.addAction(UIAlertAction(title: "Hовый аккаунт", style: .destructive) {_ in
+                            self.loginDelegate?.signUp(email, password)
+                            self.viewModel?.goToHome()
+                        })
                         
-                        messageError.addAction(actionMessage)
-                        self.present(messageError, animated: true)
+                        message.addAction(UIAlertAction(title: "Отменить", style: .cancel))
+                        self.present(message, animated: true)
+                    default:
+                        self.ShowAlert("Внимание", "\(error.localizedDescription)")
                     }
                 }
-            }
+            })
         }
         
-        buttonGetPassword.actionButton = {
+/*        buttonGetPassword.actionButton = {
             
             self.passwordLogin.text = "1!ggsdfgdsfg3"
             self.passwordLogin.isSecureTextEntry = false
@@ -255,6 +244,7 @@ class LogInViewController: UIViewController {
             quere.async(execute: workItem)
             
         }
+ */
     }
 }
 
@@ -263,4 +253,5 @@ extension LogInViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+
 }

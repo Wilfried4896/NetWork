@@ -65,7 +65,6 @@ struct NetWorking {
             } catch {
                 completion(.failure(.dataNotFound))
             }
-            
         }
         
         dataTask.resume()

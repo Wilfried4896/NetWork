@@ -1,9 +1,9 @@
-//
+/*
 //  FeedViewController.swift
 //  Navigation1_3
 //
 //  Created by Вилфриэд Оди on 02.06.2022.
-//
+*/
 
 import UIKit
 import StorageService
@@ -77,7 +77,7 @@ class FeedViewController: UIViewController {
         ])
     }
     
-    private func alert(_ title: String, _ message: String) {
+    func ShowAlert(_ title: String, _ message: String) {
         let messageError = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let actionMessage = UIAlertAction(title: "OK", style: .destructive)
         
@@ -96,9 +96,9 @@ class FeedViewController: UIViewController {
 
             switch self.feedViewModel.didTapButton(textFielFeed) {
                 case .success(let succes):
-                    self.alert("Браво", succes)
+                    self.ShowAlert("Браво", succes)
                 case.failure(let error):
-                    self.alert("🧐🧐🧐", error.description)
+                    self.ShowAlert("🧐🧐🧐", error.description)
             }
         }
     }

@@ -27,7 +27,7 @@ class InfoViewController: UIViewController {
         nameTable.register(UITableViewCell.self, forCellReuseIdentifier: "Default")
         nameTable.delegate = self
         nameTable.dataSource = self
-        nameTable.backgroundColor = .white
+        nameTable.backgroundColor = .systemBackground
         nameTable.translatesAutoresizingMaskIntoConstraints = false
         return nameTable
     }()
@@ -35,6 +35,7 @@ class InfoViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let titleInfo = UILabel()
         titleInfo.numberOfLines = 0
+        //titleInfo.tintColor = .systemGray3
         titleInfo.font = .systemFont(ofSize: 20, weight: .bold)
         titleInfo.translatesAutoresizingMaskIntoConstraints = false
         return titleInfo
@@ -43,6 +44,7 @@ class InfoViewController: UIViewController {
     private lazy var planeteLabel: UILabel = {
         let periode = UILabel()
         periode.numberOfLines = 0
+        //periode.tintColor = .systemGray3
         periode.font = .systemFont(ofSize: 20, weight: .bold)
         periode.translatesAutoresizingMaskIntoConstraints = false
         return periode
@@ -57,11 +59,10 @@ class InfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
-
     }
     
     private func configurationInfoView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         navigationItem.title = "Информация"
         view.addSubview(titleLabel)
         view.addSubview(planeteLabel)

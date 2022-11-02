@@ -16,12 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let navigationContoller = UINavigationController()
         window = UIWindow(frame: UIScreen.main.bounds)
-        coordinator = AppCoordinator(window: window, navController: navigationContoller)
+        coordinator = AppCoordinator(window: window)
         
         coordinator?.start()
+
         return true
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        coordinator?.finish()
     }
 }
 
