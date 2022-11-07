@@ -172,18 +172,6 @@ class LogInViewController: UIViewController {
         self.view.endEditing(true)
         self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
     }
-
-//    func loadUser(_ emailLogin: String, _ passwordLogin: String) throws {
-//
-//        let loginInspector = self.loginDelegate?.makeLoginInspector()
-//        let verifiedCurrent = loginInspector?.check(loginUser: emailLogin, passwordUser: passwordLogin)
-//
-//        guard let verifiedCurrent, verifiedCurrent else {
-//            throw ApiError.loginError
-//        }
-//
-//        self.viewModel?.goToHome()
-//    }
     
     func ShowAlert(_ title: String, _ message: String) {
         let messageError = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -204,10 +192,11 @@ class LogInViewController: UIViewController {
                 switch auth {
                 case .success(_):
                     self.viewModel?.goToHome()
+                    //print("ok")
                 case .failure(let error):
                     switch error.code {
                     case .userNotFound:
-                        let message = UIAlertController(title: "Аккаунт не найден", message: "Хотите создать его", preferredStyle: .alert)
+                        let message = UIAlertController(title: "Аккаунт не найден", message: "Хотите создать аккаунт", preferredStyle: .alert)
                         message.addAction(UIAlertAction(title: "Hовый аккаунт", style: .destructive) {_ in
                             self.loginDelegate?.signUp(email, password)
                             self.viewModel?.goToHome()
@@ -220,31 +209,8 @@ class LogInViewController: UIViewController {
                     }
                 }
             })
+            //self.viewModel?.goToHome()
         }
-        
-/*        buttonGetPassword.actionButton = {
-            
-            self.passwordLogin.text = "1!ggsdfgdsfg3"
-            self.passwordLogin.isSecureTextEntry = false
-            
-            let quere = DispatchQueue(label: "ru.Wifried4896", attributes: .concurrent)
-            
-            let workItem = DispatchWorkItem() {
-                bruteForce(passwordToUnlock: "1!ggsdfgdsfg3")
-            }
-            
-            let notifyItem = DispatchWorkItem() {
-                self.activityIndicator.stopAnimating()
-                self.passwordLogin.isSecureTextEntry = true
-            }
-            
-            workItem.notify(queue: .main, execute: notifyItem)
-            
-            self.activityIndicator.startAnimating()
-            quere.async(execute: workItem)
-            
-        }
- */
     }
 }
 

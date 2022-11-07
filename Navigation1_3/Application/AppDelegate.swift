@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,12 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coordinator = AppCoordinator(window: window)
         
         coordinator?.start()
-
+        FirebaseApp.configure()
         return true
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
         coordinator?.finish()
     }
+
 }
+
 

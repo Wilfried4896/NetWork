@@ -5,6 +5,7 @@
 //  Created by Вилфриэд Оди on 04.10.2022.
 
 import UIKit
+import FirebaseAuth
 
 class TabBarCoordinator: Coordinator {
     
@@ -23,7 +24,7 @@ class TabBarCoordinator: Coordinator {
     func initializeHomeTabBar() {
         
         var controller: [UIViewController] = []
-        
+        let user = Auth.auth().currentUser
         // Setup for profile tab
         let profileNavigationC = UINavigationController()
         let profileCoordinator = ProfileCoordinator(navigationController: profileNavigationC)
@@ -33,23 +34,23 @@ class TabBarCoordinator: Coordinator {
         
         // Create the tabbar item for tabbar.
         let profilItem = UITabBarItem()
-        profilItem.title = "PROFILE"
+        if user != nil {
+            profilItem.title = "\(user?.email ?? "PROFILE")"
+        }
         profilItem.image = UIImage(systemName: "person.fill")
         profileNavigationC.tabBarItem = profilItem
         
         // Setup for feed tab
-        
         let feedNavigationC = UINavigationController()
         let feedCoordinator = FeedCoordinator(navigationController: feedNavigationC)
-        
         feedCoordinator.parentCoordinator = parentCoordinator
         
         // Create the tabbar item for tabbar.
-        
         let feddItem = UITabBarItem()
         feddItem.title = "FEED"
         feddItem.image = UIImage(systemName: "house.fill")
         feedNavigationC.tabBarItem = feddItem
+       
         
         controller.append(feedNavigationC)
         controller.append(profileNavigationC)

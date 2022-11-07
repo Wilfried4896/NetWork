@@ -11,6 +11,8 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
+    
+    
     private let article: [Article] = Post.shared.data
     var userCurrent: User = User(login: "login", fullName: "Kali-Linux",
                                  avatar: UIImage(named: "Kali-Linux"), status: "Онлайн")

@@ -24,12 +24,14 @@
 		EC49F76D28EC534100AE1946 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F76C28EC534100AE1946 /* FeedViewModel.swift */; };
 		EC49F77128EC541C00AE1946 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F77028EC541C00AE1946 /* LoginViewModel.swift */; };
 		EC49F77328EC568300AE1946 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F77228EC568300AE1946 /* LoginModel.swift */; };
-		EC49F77528EC5F5100AE1946 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F77428EC5F5100AE1946 /* Binding.swift */; };
 		EC5E95AE2854C9980066D549 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E95AD2854C9980066D549 /* LogInViewController.swift */; };
 		EC61A0AD28605895002041E3 /* MyCostumCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC61A0AC28605895002041E3 /* MyCostumCollectionCell.swift */; };
 		EC61DE6B28D6141A00763700 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = EC61DE6A28D6141A00763700 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC61DE7428D6152D00763700 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC04F88D2858BA9B000D11AD /* Post.swift */; };
 		EC6D5EAE29031BAA001ED565 /* NetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6D5EAD29031BAA001ED565 /* NetWork.swift */; };
+		EC6E31FF2916FD4800549A1B /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EC6E31FE2916FD4800549A1B /* RxCocoa */; };
+		EC6E32012916FD4800549A1B /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC6E32002916FD4800549A1B /* RxSwift */; };
+		EC7149D4291402C500C33B6B /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7149D3291402C500C33B6B /* ImageModel.swift */; };
 		EC819988284B752F00BB7EC8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC819987284B752F00BB7EC8 /* InfoViewController.swift */; };
 		EC819992284DC59300BB7EC8 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC819991284DC59300BB7EC8 /* ProfileHeaderView.swift */; };
 		EC8DEF60285CA53D00B25A65 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */; };
@@ -37,6 +39,8 @@
 		EC8DEF64285CC0AF00B25A65 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8DEF63285CC0AF00B25A65 /* PhotosCollectionViewCell.swift */; };
 		EC943E6928F6CFFB00D16B1C /* BruteForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC943E6828F6CFFB00D16B1C /* BruteForce.swift */; };
 		ECA2B88028D9D1F2003677D1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2B87F28D9D1F2003677D1 /* User.swift */; };
+		ECADFD05291541410063A8F6 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECADFD04291541410063A8F6 /* OnboardingCoordinator.swift */; };
+		ECADFD08291541D60063A8F6 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECADFD07291541D60063A8F6 /* OnboardingController.swift */; };
 		ECC2A90C290F1B1E000C0742 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECC2A90B290F1B1E000C0742 /* GoogleService-Info.plist */; };
 		ECDE86B32848935A004A0B1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDE86B22848935A004A0B1E /* AppDelegate.swift */; };
 		ECDE86BC2848935C004A0B1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECDE86BB2848935C004A0B1E /* Assets.xcassets */; };
@@ -90,11 +94,11 @@
 		EC49F76C28EC534100AE1946 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		EC49F77028EC541C00AE1946 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		EC49F77228EC568300AE1946 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		EC49F77428EC5F5100AE1946 /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		EC5E95AD2854C9980066D549 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		EC61A0AC28605895002041E3 /* MyCostumCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCostumCollectionCell.swift; sourceTree = "<group>"; };
 		EC61DE6A28D6141A00763700 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		EC6D5EAD29031BAA001ED565 /* NetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWork.swift; sourceTree = "<group>"; };
+		EC7149D3291402C500C33B6B /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		EC819987284B752F00BB7EC8 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		EC819991284DC59300BB7EC8 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
@@ -102,9 +106,11 @@
 		EC8DEF63285CC0AF00B25A65 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC943E6828F6CFFB00D16B1C /* BruteForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForce.swift; sourceTree = "<group>"; };
 		ECA2B87F28D9D1F2003677D1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		ECC2A909290F1A8A000C0742 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = StorageService.framework; path = "/Users/vilfriedodi/Desktop/Switf/урок_по_Switf/Exercises/NetWork/build/Debug-iphoneos/StorageService.framework"; sourceTree = "<absolute>"; };
-		ECC2A90A290F1A8A000C0742 /* Navigation1_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Navigation1_3.app; path = "/Users/vilfriedodi/Desktop/Switf/урок_по_Switf/Exercises/NetWork/build/Debug-iphoneos/Navigation1_3.app"; sourceTree = "<absolute>"; };
+		ECADFD04291541410063A8F6 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		ECADFD07291541D60063A8F6 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		ECC2A90B290F1B1E000C0742 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ECC2A90F290F1BB5000C0742 /* Navigation1_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation1_3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECC2A910290F1BB5000C0742 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDE86B22848935A004A0B1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECDE86BB2848935C004A0B1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECDE86BE2848935C004A0B1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -128,7 +134,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC6E31FF2916FD4800549A1B /* RxCocoa in Frameworks */,
 				EC3E5BCB28E1D65D009B3ABE /* iOSIntPackage in Frameworks */,
+				EC6E32012916FD4800549A1B /* RxSwift in Frameworks */,
 				59B560F970E543049FE07CCA /* Pods_Navigation1_3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,7 +152,6 @@
 				F3EC1CBDBB4E8E883F93CF24 /* Pods-StorageService.debug.xcconfig */,
 				539D2F0D6827CB193DF43E7E /* Pods-StorageService.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -162,7 +169,6 @@
 			children = (
 				ECDE86B22848935A004A0B1E /* AppDelegate.swift */,
 				EC49F75428EB74E500AE1946 /* AppCoordinator.swift */,
-				EC49F77428EC5F5100AE1946 /* Binding.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -171,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				EC49F76028EC39B800AE1946 /* TabBarCoordinator.swift */,
+				ECADFD03291541190063A8F6 /* Onboarding */,
 				EC49F76828EC527F00AE1946 /* Info */,
 				EC49F76628EC523500AE1946 /* Login */,
 				EC819990284DC49400BB7EC8 /* Profile */,
@@ -330,8 +337,26 @@
 				EC49F72528EA09D700AE1946 /* FeedModel.swift */,
 				EC49F77228EC568300AE1946 /* LoginModel.swift */,
 				EC6D5EAD29031BAA001ED565 /* NetWork.swift */,
+				EC7149D3291402C500C33B6B /* ImageModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		ECADFD03291541190063A8F6 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				ECADFD04291541410063A8F6 /* OnboardingCoordinator.swift */,
+				ECADFD06291541B70063A8F6 /* OnboardingVC */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		ECADFD06291541B70063A8F6 /* OnboardingVC */ = {
+			isa = PBXGroup;
+			children = (
+				ECADFD07291541D60063A8F6 /* OnboardingController.swift */,
+			);
+			path = OnboardingVC;
 			sourceTree = "<group>";
 		};
 		ECDE86A62848935A004A0B1E = {
@@ -341,6 +366,8 @@
 				EC61DE6928D6141A00763700 /* StorageService */,
 				D584EDC4A8A4B95876E08B1B /* Pods */,
 				E421FBBC023F62EC6D3554E5 /* Frameworks */,
+				ECC2A90F290F1BB5000C0742 /* Navigation1_3.app */,
+				ECC2A910290F1BB5000C0742 /* StorageService.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -390,7 +417,7 @@
 			);
 			name = StorageService;
 			productName = StorageService;
-			productReference = ECC2A909290F1A8A000C0742 /* StorageService.framework */;
+			productReference = ECC2A910290F1BB5000C0742 /* StorageService.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		ECDE86AE2848935A004A0B1E /* Navigation1_3 */ = {
@@ -412,9 +439,11 @@
 			name = Navigation1_3;
 			packageProductDependencies = (
 				EC3E5BCA28E1D65D009B3ABE /* iOSIntPackage */,
+				EC6E31FE2916FD4800549A1B /* RxCocoa */,
+				EC6E32002916FD4800549A1B /* RxSwift */,
 			);
 			productName = Navigation1_3;
-			productReference = ECC2A90A290F1A8A000C0742 /* Navigation1_3.app */;
+			productReference = ECC2A90F290F1BB5000C0742 /* Navigation1_3.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -446,6 +475,7 @@
 			mainGroup = ECDE86A62848935A004A0B1E;
 			packageReferences = (
 				EC3E5BC928E1D65D009B3ABE /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+				EC6E31FD2916FD4800549A1B /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = ECDE86A62848935A004A0B1E;
 			projectDirPath = "";
@@ -556,6 +586,7 @@
 			files = (
 				EC49F76328EC3D0600AE1946 /* ProfileCoordinator.swift in Sources */,
 				EC49F76128EC39B800AE1946 /* TabBarCoordinator.swift in Sources */,
+				EC7149D4291402C500C33B6B /* ImageModel.swift in Sources */,
 				ECDE86CB2848F6D3004A0B1E /* PostViewController.swift in Sources */,
 				EC6D5EAE29031BAA001ED565 /* NetWork.swift in Sources */,
 				EC61A0AD28605895002041E3 /* MyCostumCollectionCell.swift in Sources */,
@@ -568,7 +599,7 @@
 				EC49F77328EC568300AE1946 /* LoginModel.swift in Sources */,
 				EC8DEF64285CC0AF00B25A65 /* PhotosCollectionViewCell.swift in Sources */,
 				EC49F76528EC3D1B00AE1946 /* FeedCoordinator.swift in Sources */,
-				EC49F77528EC5F5100AE1946 /* Binding.swift in Sources */,
+				ECADFD05291541410063A8F6 /* OnboardingCoordinator.swift in Sources */,
 				EC05B67B2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift in Sources */,
 				EC49F75328EB747400AE1946 /* Coordinator.swift in Sources */,
 				ECA2B88028D9D1F2003677D1 /* User.swift in Sources */,
@@ -580,6 +611,7 @@
 				EC819988284B752F00BB7EC8 /* InfoViewController.swift in Sources */,
 				EC49F75528EB74E500AE1946 /* AppCoordinator.swift in Sources */,
 				EC49F77128EC541C00AE1946 /* LoginViewModel.swift in Sources */,
+				ECADFD08291541D60063A8F6 /* OnboardingController.swift in Sources */,
 				EC8DEF62285CC02C00B25A65 /* PhotosViewController.swift in Sources */,
 				ECDE86C928489E2F004A0B1E /* ProfileViewController.swift in Sources */,
 				EC13E9C328E8DD3E00059FB4 /* CustomButton.swift in Sources */,
@@ -893,6 +925,14 @@
 				kind = branch;
 			};
 		};
+		EC6E31FD2916FD4800549A1B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -900,6 +940,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC3E5BC928E1D65D009B3ABE /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
 			productName = iOSIntPackage;
+		};
+		EC6E31FE2916FD4800549A1B /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC6E31FD2916FD4800549A1B /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		EC6E32002916FD4800549A1B /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC6E31FD2916FD4800549A1B /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

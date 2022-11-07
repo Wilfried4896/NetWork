@@ -13,8 +13,9 @@ class NameOfResidencePlaneteCell: UITableViewCell {
     
     lazy var nameLabel: UILabel = {
         let name = UILabel()
-        name.font = .systemFont(ofSize: 20, weight: .regular)
+        name.font = .systemFont(ofSize: 20, weight: .semibold)
         name.tintColor = .systemGray3
+        name.numberOfLines = 0
         name.translatesAutoresizingMaskIntoConstraints = false
         return name
     }()
@@ -33,9 +34,10 @@ class NameOfResidencePlaneteCell: UITableViewCell {
         
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
-            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
+            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -9),
         ])
     }
 }

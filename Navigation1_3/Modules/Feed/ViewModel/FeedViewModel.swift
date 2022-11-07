@@ -23,29 +23,20 @@ extension WordError: CustomStringConvertible {
     }
 }
 protocol FeedViewModelProtocol {
-    var text: Binding<String> { get set }
     func goToInfo()
 }
 
 class FeedViewModel: FeedViewModelProtocol {
     
-    var text = Binding<String>("")
-    //var color = Binding<UIColor>(.white)
-    
     let feedModel = FeedModel()
      private var isCorrect = false
 
-    
     func didTapButton(_ word: String) -> Result<String, WordError> {
         isCorrect = feedModel.check(word)
         
         guard isCorrect else {
-            //text.value = "Неправильно"
-            //color.value = .red
             return .failure(.noFoundWord)
         }
-        //text.value = "Правильно"
-        //color.value = .green
         return .success("Правильно")
     }
     

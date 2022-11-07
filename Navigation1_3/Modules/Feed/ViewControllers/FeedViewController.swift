@@ -44,18 +44,13 @@ class FeedViewController: UIViewController {
         view.backgroundColor = .white
         setUpStackView()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
-
-    }
 
     private func setUpStackView() {
         view.addSubview(textFielFeed)
         view.addSubview(checkGuessButton)
         view.addSubview(statusFeedLabel)
         //binding()
+        navigationItem.largeTitleDisplayMode = .never
         checkGuessButtonVerification()
         
         navigationItem.rightBarButtonItem = infoBotton
