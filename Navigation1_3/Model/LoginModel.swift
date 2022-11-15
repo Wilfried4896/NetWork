@@ -27,13 +27,10 @@ struct LoginInspector: LoginViewControllerDelegate {
             }
         }
     }
-
-//    func checkCredentials(_ email: String, _ password: String) {
-//        checkerService.checkCredentials(email, password)
-//    }
     
     func signUp(_ email: String, _ password: String) {
         checkerService.signUp(email, password)
     }
 }
+
 

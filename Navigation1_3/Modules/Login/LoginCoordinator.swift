@@ -29,11 +29,12 @@ extension LoginCoordinator: LoginNavigation {
         
         // Instantiate LoginViewController
         let loginVC = LogInViewController()
-
+        let serviceAuth = Service()
         let loginViewModel = LoginViewModel()
         loginViewModel.navigation = self
         loginVC.loginDelegate = loginInspector
         loginVC.viewModel = loginViewModel
+        loginVC.serviceDelegate = serviceAuth
         navigationController.pushViewController(loginVC, animated: true)
     }
     

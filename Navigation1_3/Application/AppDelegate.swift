@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coordinator = AppCoordinator(window: window)
         
         coordinator?.start()
-
+        
+        let config = Realm.Configuration(schemaVersion: 1)
+        Realm.Configuration.defaultConfiguration = config
+        
         return true
     }
     

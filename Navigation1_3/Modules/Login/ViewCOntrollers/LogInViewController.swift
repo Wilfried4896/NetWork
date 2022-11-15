@@ -7,19 +7,19 @@
 
 import UIKit
 import FirebaseAuth
+import RealmSwift
 
 enum ApiError: String, Error {
     case loginError = "Логин или пароль некорректен"
-}
-
-public func showMessage() {
-    
 }
 
 class LogInViewController: UIViewController {
 
     var loginDelegate: LoginViewControllerDelegate?
     var viewModel: LoginViewModel?
+    let realm = try! Realm()
+    
+    var serviceDelegate: ServiceProtocol?
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -72,7 +72,6 @@ class LogInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpLogInView()
     }
 
@@ -101,31 +100,31 @@ class LogInViewController: UIViewController {
         let area = view.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            // scrollViewLoginConstraint
+            // MARK: - scrollViewLoginConstraint
             scrollView.topAnchor.constraint(equalTo:  area.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: area.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: area.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: area.bottomAnchor),
             
-            // logoVkConstraints
+            // MARK: - logoVkConstraints
             logoVk.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 120),
             logoVk.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             logoVk.heightAnchor.constraint(equalToConstant: 100),
             logoVk.widthAnchor.constraint(equalToConstant: 100),
 
-            // emailLoginConstraints
+            //MARK: - emailLoginConstraints
             emailLogin.topAnchor.constraint(equalTo: logoVk.bottomAnchor, constant: 120),
             emailLogin.leadingAnchor.constraint(equalTo: area.leadingAnchor, constant: 16),
             emailLogin.trailingAnchor.constraint(equalTo: area.trailingAnchor, constant: -16),
             emailLogin.heightAnchor.constraint(equalToConstant: 50),
 
-            // passwordLoginConstraints
+            //MARK: - passwordLoginConstraints
             passwordLogin.topAnchor.constraint(equalTo: emailLogin.bottomAnchor),
             passwordLogin.leadingAnchor.constraint(equalTo: area.leadingAnchor, constant: 16),
             passwordLogin.trailingAnchor.constraint(equalTo: area.trailingAnchor, constant: -16),
             passwordLogin.heightAnchor.constraint(equalToConstant: 50),
 
-            // logInButtonConstraints
+            //MARK: - logInButtonConstraints
             logInButton.heightAnchor.constraint(equalToConstant: 50),
             logInButton.leadingAnchor.constraint(equalTo: area.leadingAnchor, constant: 16),
             logInButton.trailingAnchor.constraint(equalTo: area.trailingAnchor, constant: -16),
@@ -139,7 +138,6 @@ class LogInViewController: UIViewController {
         textField.layer.cornerRadius = 10
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.borderWidth = 0.5
-        //textField.textColor = UIColor.black
         textField.backgroundColor = UIColor.systemGray6
         textField.autocapitalizationType = .none
         textField.font = .systemFont(ofSize: 16)
@@ -172,18 +170,6 @@ class LogInViewController: UIViewController {
         self.view.endEditing(true)
         self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
     }
-
-//    func loadUser(_ emailLogin: String, _ passwordLogin: String) throws {
-//
-//        let loginInspector = self.loginDelegate?.makeLoginInspector()
-//        let verifiedCurrent = loginInspector?.check(loginUser: emailLogin, passwordUser: passwordLogin)
-//
-//        guard let verifiedCurrent, verifiedCurrent else {
-//            throw ApiError.loginError
-//        }
-//
-//        self.viewModel?.goToHome()
-//    }
     
     func ShowAlert(_ title: String, _ message: String) {
         let messageError = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -200,9 +186,11 @@ class LogInViewController: UIViewController {
                 return
             }
             
+            // MARK: - FireBaseAuth
             self.loginDelegate?.checkCredentials(email, password, { auth in
                 switch auth {
                 case .success(_):
+                    // MARK: - RealmSwift
                     self.viewModel?.goToHome()
                 case .failure(let error):
                     switch error.code {
@@ -210,6 +198,7 @@ class LogInViewController: UIViewController {
                         let message = UIAlertController(title: "Аккаунт не найден", message: "Хотите создать его", preferredStyle: .alert)
                         message.addAction(UIAlertAction(title: "Hовый аккаунт", style: .destructive) {_ in
                             self.loginDelegate?.signUp(email, password)
+                            self.serviceDelegate?.saveAuth(email, password)
                             self.viewModel?.goToHome()
                         })
                         
@@ -221,30 +210,7 @@ class LogInViewController: UIViewController {
                 }
             })
         }
-        
-/*        buttonGetPassword.actionButton = {
-            
-            self.passwordLogin.text = "1!ggsdfgdsfg3"
-            self.passwordLogin.isSecureTextEntry = false
-            
-            let quere = DispatchQueue(label: "ru.Wifried4896", attributes: .concurrent)
-            
-            let workItem = DispatchWorkItem() {
-                bruteForce(passwordToUnlock: "1!ggsdfgdsfg3")
-            }
-            
-            let notifyItem = DispatchWorkItem() {
-                self.activityIndicator.stopAnimating()
-                self.passwordLogin.isSecureTextEntry = true
-            }
-            
-            workItem.notify(queue: .main, execute: notifyItem)
-            
-            self.activityIndicator.startAnimating()
-            quere.async(execute: workItem)
-            
-        }
- */
+
     }
 }
 

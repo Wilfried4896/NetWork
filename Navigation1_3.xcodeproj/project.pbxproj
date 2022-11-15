@@ -30,6 +30,9 @@
 		EC61DE6B28D6141A00763700 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = EC61DE6A28D6141A00763700 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC61DE7428D6152D00763700 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC04F88D2858BA9B000D11AD /* Post.swift */; };
 		EC6D5EAE29031BAA001ED565 /* NetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6D5EAD29031BAA001ED565 /* NetWork.swift */; };
+		EC71AB792923F2CF003EA87A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC71AB782923F2CF003EA87A /* RealmSwift */; };
+		EC71AB7C2923F5A1003EA87A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71AB7B2923F5A1003EA87A /* Model.swift */; };
+		EC71AB7E2923F5CB003EA87A /* ServiceAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71AB7D2923F5CB003EA87A /* ServiceAuth.swift */; };
 		EC819988284B752F00BB7EC8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC819987284B752F00BB7EC8 /* InfoViewController.swift */; };
 		EC819992284DC59300BB7EC8 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC819991284DC59300BB7EC8 /* ProfileHeaderView.swift */; };
 		EC8DEF60285CA53D00B25A65 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */; };
@@ -95,6 +98,10 @@
 		EC61A0AC28605895002041E3 /* MyCostumCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCostumCollectionCell.swift; sourceTree = "<group>"; };
 		EC61DE6A28D6141A00763700 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		EC6D5EAD29031BAA001ED565 /* NetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWork.swift; sourceTree = "<group>"; };
+		EC71AB752923F12D003EA87A /* Navigation1_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation1_3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC71AB762923F12D003EA87A /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC71AB7B2923F5A1003EA87A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		EC71AB7D2923F5CB003EA87A /* ServiceAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAuth.swift; sourceTree = "<group>"; };
 		EC819987284B752F00BB7EC8 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		EC819991284DC59300BB7EC8 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
@@ -102,8 +109,6 @@
 		EC8DEF63285CC0AF00B25A65 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC943E6828F6CFFB00D16B1C /* BruteForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForce.swift; sourceTree = "<group>"; };
 		ECA2B87F28D9D1F2003677D1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		ECC2A909290F1A8A000C0742 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = StorageService.framework; path = "/Users/vilfriedodi/Desktop/Switf/урок_по_Switf/Exercises/NetWork/build/Debug-iphoneos/StorageService.framework"; sourceTree = "<absolute>"; };
-		ECC2A90A290F1A8A000C0742 /* Navigation1_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Navigation1_3.app; path = "/Users/vilfriedodi/Desktop/Switf/урок_по_Switf/Exercises/NetWork/build/Debug-iphoneos/Navigation1_3.app"; sourceTree = "<absolute>"; };
 		ECC2A90B290F1B1E000C0742 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ECDE86B22848935A004A0B1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECDE86BB2848935C004A0B1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC71AB792923F2CF003EA87A /* RealmSwift in Frameworks */,
 				EC3E5BCB28E1D65D009B3ABE /* iOSIntPackage in Frameworks */,
 				59B560F970E543049FE07CCA /* Pods_Navigation1_3.framework in Frameworks */,
 			);
@@ -144,7 +150,6 @@
 				F3EC1CBDBB4E8E883F93CF24 /* Pods-StorageService.debug.xcconfig */,
 				539D2F0D6827CB193DF43E7E /* Pods-StorageService.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -314,6 +319,15 @@
 			path = StorageService;
 			sourceTree = "<group>";
 		};
+		EC71AB7A2923F582003EA87A /* RealmSwift */ = {
+			isa = PBXGroup;
+			children = (
+				EC71AB7B2923F5A1003EA87A /* Model.swift */,
+				EC71AB7D2923F5CB003EA87A /* ServiceAuth.swift */,
+			);
+			path = RealmSwift;
+			sourceTree = "<group>";
+		};
 		EC819990284DC49400BB7EC8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,12 +355,15 @@
 				EC61DE6928D6141A00763700 /* StorageService */,
 				D584EDC4A8A4B95876E08B1B /* Pods */,
 				E421FBBC023F62EC6D3554E5 /* Frameworks */,
+				EC71AB752923F12D003EA87A /* Navigation1_3.app */,
+				EC71AB762923F12D003EA87A /* StorageService.framework */,
 			);
 			sourceTree = "<group>";
 		};
 		ECDE86B12848935A004A0B1E /* Navigation1_3 */ = {
 			isa = PBXGroup;
 			children = (
+				EC71AB7A2923F582003EA87A /* RealmSwift */,
 				ECC2A90B290F1B1E000C0742 /* GoogleService-Info.plist */,
 				EC13E9B928E4E9D300059FB4 /* Application */,
 				EC49F75128EB745600AE1946 /* Coordinator */,
@@ -390,7 +407,7 @@
 			);
 			name = StorageService;
 			productName = StorageService;
-			productReference = ECC2A909290F1A8A000C0742 /* StorageService.framework */;
+			productReference = EC71AB762923F12D003EA87A /* StorageService.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		ECDE86AE2848935A004A0B1E /* Navigation1_3 */ = {
@@ -412,9 +429,10 @@
 			name = Navigation1_3;
 			packageProductDependencies = (
 				EC3E5BCA28E1D65D009B3ABE /* iOSIntPackage */,
+				EC71AB782923F2CF003EA87A /* RealmSwift */,
 			);
 			productName = Navigation1_3;
-			productReference = ECC2A90A290F1A8A000C0742 /* Navigation1_3.app */;
+			productReference = EC71AB752923F12D003EA87A /* Navigation1_3.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -446,6 +464,7 @@
 			mainGroup = ECDE86A62848935A004A0B1E;
 			packageReferences = (
 				EC3E5BC928E1D65D009B3ABE /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+				EC71AB772923F2CF003EA87A /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = ECDE86A62848935A004A0B1E;
 			projectDirPath = "";
@@ -563,12 +582,14 @@
 				EC49F72628EA09D700AE1946 /* FeedModel.swift in Sources */,
 				EC49F76D28EC534100AE1946 /* FeedViewModel.swift in Sources */,
 				ECDE86B32848935A004A0B1E /* AppDelegate.swift in Sources */,
+				EC71AB7E2923F5CB003EA87A /* ServiceAuth.swift in Sources */,
 				EC49F72428EA077500AE1946 /* CustomTextField.swift in Sources */,
 				EC8DEF60285CA53D00B25A65 /* PhotosTableViewCell.swift in Sources */,
 				EC49F77328EC568300AE1946 /* LoginModel.swift in Sources */,
 				EC8DEF64285CC0AF00B25A65 /* PhotosCollectionViewCell.swift in Sources */,
 				EC49F76528EC3D1B00AE1946 /* FeedCoordinator.swift in Sources */,
 				EC49F77528EC5F5100AE1946 /* Binding.swift in Sources */,
+				EC71AB7C2923F5A1003EA87A /* Model.swift in Sources */,
 				EC05B67B2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift in Sources */,
 				EC49F75328EB747400AE1946 /* Coordinator.swift in Sources */,
 				ECA2B88028D9D1F2003677D1 /* User.swift in Sources */,
@@ -893,6 +914,14 @@
 				kind = branch;
 			};
 		};
+		EC71AB772923F2CF003EA87A /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -900,6 +929,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC3E5BC928E1D65D009B3ABE /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
 			productName = iOSIntPackage;
+		};
+		EC71AB782923F2CF003EA87A /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC71AB772923F2CF003EA87A /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

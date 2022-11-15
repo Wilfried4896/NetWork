@@ -7,7 +7,7 @@
 
 import Foundation
 import FirebaseAuth
-
+import RealmSwift
 
 protocol LoginNavigation {
     func goToHome()
@@ -50,3 +50,4 @@ class LoginViewModel: LoginNavigation {
         navigation?.goToHome()
     }
 }
+
