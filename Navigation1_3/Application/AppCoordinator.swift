@@ -10,23 +10,26 @@ import FirebaseCore
 import FirebaseAuth
 import RealmSwift
 
+
+
 class AppCoordinator: Coordinator {
     
     var window: UIWindow?
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     var rootViewController: UIViewController?
-    let realm = try! Realm()
     
     init(window: UIWindow?) {
         self.window = window
     }
     
     func start() {
+        
         window?.makeKeyAndVisible()
         FirebaseApp.configure()
+        let service = Service()
         
-        guard UserDefaults.standard.bool(forKey: "isConnected") else {
+        guard service.signInWithRealm() else {
             goToLogin()
             return
         }

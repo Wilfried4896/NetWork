@@ -10,6 +10,7 @@ import RealmSwift
 
 protocol ServiceProtocol: AnyObject {
     func saveAuth(_ login: String, _ password: String)
+    func signInWithRealm() -> Bool
 }
 
 
@@ -21,10 +22,21 @@ class Service: ServiceProtocol {
         auth.login = login
         auth.password = password
         auth.isConnected = true
-        UserDefaults.standard.set(auth.isConnected, forKey: "isConnected")
         
         try! realm.write {
             realm.add(auth)
         }
+    }
+    
+    func signInWithRealm() -> Bool {
+        let realm = try! Realm()
+        
+        let accounts = realm.objects(Authentification.self)
+        let user = Array(accounts)
+        
+        guard let isConnected = user.first?.isConnected, isConnected else {
+            return false
+        }
+        return true
     }
 }
