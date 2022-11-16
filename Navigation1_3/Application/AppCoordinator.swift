@@ -6,28 +6,52 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
+import RealmSwift
+
+
 
 class AppCoordinator: Coordinator {
     
     var window: UIWindow?
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
-    var navigationController: UINavigationController
+    var rootViewController: UIViewController?
     
-    init(window: UIWindow?, navController: UINavigationController) {
+    init(window: UIWindow?) {
         self.window = window
-        self.navigationController = navController
     }
     
     func start() {
         
-        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        goToLogin()
+        FirebaseApp.configure()
+        let service = Service()
+        
+        guard service.signInWithRealm() else {
+            goToLogin()
+            return
+        }
+       goToHome()
+        
+    }
+    
+    func finish() {
+        do {
+            try Auth.auth().signOut()
+            print("Sign Out")
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 
+
     func goToLogin() {
-        let loginCoordinator = LoginCoordinator(navigationController: navigationController)
+        rootViewController = UINavigationController()
+        window?.rootViewController = rootViewController
+        
+        let loginCoordinator = LoginCoordinator(navigationController: rootViewController as! UINavigationController)
         childCoordinators.removeAll()
         
         loginCoordinator.parentCoordinator = self
@@ -37,15 +61,15 @@ class AppCoordinator: Coordinator {
     }
     
     func goToHome() {
-        let homeTabBarCoordinator = HomeTabBarCoordinator(navigationController: navigationController)
+        rootViewController = UITabBarController()
+        window?.rootViewController = rootViewController
+        
+        let tabBarCoordinator = TabBarCoordinator(navigationController: rootViewController as! UITabBarController)
         childCoordinators.removeAll()
         
-        homeTabBarCoordinator.parentCoordinator = self
-        childCoordinators.append(homeTabBarCoordinator)
+        tabBarCoordinator.parentCoordinator = self
+        childCoordinators.append(tabBarCoordinator)
         
-        homeTabBarCoordinator.start()
+        tabBarCoordinator.start()
     }
 }
-
-
-

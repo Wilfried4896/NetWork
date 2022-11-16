@@ -118,7 +118,6 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     
     func configurationProfile(profile: User) {
         avatarImageView.image = profile.avatar
-        fullNameLabel.text = profile.fullName
         statusLabel.text = profile.status
     }
     

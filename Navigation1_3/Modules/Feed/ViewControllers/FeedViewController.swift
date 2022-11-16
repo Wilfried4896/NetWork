@@ -1,9 +1,9 @@
-//
+/*
 //  FeedViewController.swift
 //  Navigation1_3
 //
 //  Created by Вилфриэд Оди on 02.06.2022.
-//
+*/
 
 import UIKit
 import StorageService
@@ -13,6 +13,7 @@ class FeedViewController: UIViewController {
     var post = PostFeed(Title: "Мой пост")
     
     var feedViewModel = FeedViewModel()
+    weak var coordinator: FeedCoordinator?
     
     private lazy var checkGuessButton: CustomButton = {
         let button = CustomButton(title: "Проверить", bgColor: .black, tilteColor: .white)
@@ -24,6 +25,11 @@ class FeedViewController: UIViewController {
         let textField = CustomTextField(placeholderTitle: "Enter the secret code")
         textField.delegate = self
         return textField
+    }()
+    
+    private lazy var infoBotton: UIBarButtonItem = {
+        let info = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(didTapped))
+        return info
     }()
     
     private lazy var statusFeedLabel: UILabel = {
@@ -38,6 +44,12 @@ class FeedViewController: UIViewController {
         view.backgroundColor = .white
         setUpStackView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+
+    }
 
     private func setUpStackView() {
         view.addSubview(textFielFeed)
@@ -45,7 +57,9 @@ class FeedViewController: UIViewController {
         view.addSubview(statusFeedLabel)
         //binding()
         checkGuessButtonVerification()
-
+        
+        navigationItem.rightBarButtonItem = infoBotton
+        
         NSLayoutConstraint.activate([
             textFielFeed.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             textFielFeed.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
@@ -63,26 +77,16 @@ class FeedViewController: UIViewController {
         ])
     }
     
-//    func binding() {
-//        feedViewModel.text.startBind { text in
-//            DispatchQueue.main.async {
-//                self.statusFeedLabel.text = text
-//            }
-//        }
-//
-//        feedViewModel.color.startBind { color in
-//            DispatchQueue.main.async {
-//                self.statusFeedLabel.textColor = color
-//            }
-//        }
-//    }
-    
-    private func alert(_ title: String, _ message: String) {
+    func ShowAlert(_ title: String, _ message: String) {
         let messageError = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let actionMessage = UIAlertAction(title: "OK", style: .destructive)
         
         messageError.addAction(actionMessage)
         self.present(messageError, animated: true)
+    }
+    
+    @objc private func didTapped() {
+        coordinator?.goToInfo()
     }
 
     private func checkGuessButtonVerification() {
@@ -92,9 +96,9 @@ class FeedViewController: UIViewController {
 
             switch self.feedViewModel.didTapButton(textFielFeed) {
                 case .success(let succes):
-                    self.alert("Браво", succes)
+                    self.ShowAlert("Браво", succes)
                 case.failure(let error):
-                    self.alert("🧐🧐🧐", error.description)
+                    self.ShowAlert("🧐🧐🧐", error.description)
             }
         }
     }

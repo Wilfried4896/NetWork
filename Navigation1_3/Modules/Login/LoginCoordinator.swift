@@ -13,7 +13,7 @@ class LoginCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     
-    required init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
@@ -25,15 +25,16 @@ class LoginCoordinator: Coordinator {
 extension LoginCoordinator: LoginNavigation {
     
     func  goToLoginPage() {
-        let loginFactory = MyLoginFactory(loginInspector: LoginInspector())
+        let loginInspector = LoginInspector()
         
         // Instantiate LoginViewController
         let loginVC = LogInViewController()
-        
+        let serviceAuth = Service()
         let loginViewModel = LoginViewModel()
         loginViewModel.navigation = self
-        loginVC.loginDelegate = loginFactory
+        loginVC.loginDelegate = loginInspector
         loginVC.viewModel = loginViewModel
+        loginVC.serviceDelegate = serviceAuth
         navigationController.pushViewController(loginVC, animated: true)
     }
     

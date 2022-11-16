@@ -1,19 +1,18 @@
 //
-//  HomeTabBarCoordinator.swift
+//  TabBarCoordinator.swift
 //  Navigation1_3
 //
 //  Created by Вилфриэд Оди on 04.10.2022.
-//
 
 import UIKit
 
-class HomeTabBarCoordinator: Coordinator {
+class TabBarCoordinator: Coordinator {
     
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
-    var navigationController: UINavigationController
+    var navigationController: UITabBarController
     
-    required init(navigationController: UINavigationController) {
+    required init(navigationController: UITabBarController) {
         self.navigationController = navigationController
     }
     
@@ -22,13 +21,15 @@ class HomeTabBarCoordinator: Coordinator {
     }
     
     func initializeHomeTabBar() {
-        let tabVC = UITabBarController()
+        
+        var controller: [UIViewController] = []
         
         // Setup for profile tab
         let profileNavigationC = UINavigationController()
         let profileCoordinator = ProfileCoordinator(navigationController: profileNavigationC)
         
         profileCoordinator.parentCoordinator = parentCoordinator
+        
         
         // Create the tabbar item for tabbar.
         let profilItem = UITabBarItem()
@@ -50,9 +51,10 @@ class HomeTabBarCoordinator: Coordinator {
         feddItem.image = UIImage(systemName: "house.fill")
         feedNavigationC.tabBarItem = feddItem
         
-        tabVC.viewControllers = [feedNavigationC, profileNavigationC]
-        navigationController.pushViewController(tabVC, animated: true)
-        navigationController.setNavigationBarHidden(true, animated: true)
+        controller.append(feedNavigationC)
+        controller.append(profileNavigationC)
+        
+        navigationController.setViewControllers(controller, animated: true)
         
         // Add the coordinator into parent's child
         parentCoordinator?.childCoordinators.append(feedCoordinator)

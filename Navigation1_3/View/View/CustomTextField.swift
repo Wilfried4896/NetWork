@@ -18,5 +18,13 @@ class CustomTextField: UITextField {
         font = .systemFont(ofSize: 20)
         translatesAutoresizingMaskIntoConstraints = false
     }
+    
+}
+
+extension CustomTextField: UITextViewDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 

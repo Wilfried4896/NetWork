@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit.UIColor
 
 enum WordError: Error {
     case noFoundWord
@@ -25,13 +24,13 @@ extension WordError: CustomStringConvertible {
 }
 protocol FeedViewModelProtocol {
     var text: Binding<String> { get set }
-    var color: Binding<UIColor> { get set }
+    func goToInfo()
 }
 
 class FeedViewModel: FeedViewModelProtocol {
     
     var text = Binding<String>("")
-    var color = Binding<UIColor>(.white)
+    //var color = Binding<UIColor>(.white)
     
     let feedModel = FeedModel()
      private var isCorrect = false
@@ -50,4 +49,7 @@ class FeedViewModel: FeedViewModelProtocol {
         return .success("Правильно")
     }
     
+    func goToInfo() {
+        
+    }
 }

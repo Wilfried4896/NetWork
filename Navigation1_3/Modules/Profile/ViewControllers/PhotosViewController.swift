@@ -149,8 +149,6 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout, UICollection
             let cellDefault = collectionView.dequeueReusableCell(withReuseIdentifier: "Default", for: indexPath)
             return cellDefault
         }
-
-//        let album = galery[indexPath.row]
         cellGalery.setUpPhoto(photo: self.galery[indexPath.item])
         
         return cellGalery
