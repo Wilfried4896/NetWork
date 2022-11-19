@@ -24,39 +24,42 @@ class TabBarCoordinator: Coordinator {
         
         var controller: [UIViewController] = []
         
-        // Setup for profile tab
+        // MARK: - Setup for profile tab
         let profileNavigationC = UINavigationController()
         let profileCoordinator = ProfileCoordinator(navigationController: profileNavigationC)
         
         profileCoordinator.parentCoordinator = parentCoordinator
         
         
-        // Create the tabbar item for tabbar.
+        // MARK: - Create the tabbar item for tabbar.
         let profilItem = UITabBarItem()
         profilItem.title = "PROFILE"
         profilItem.image = UIImage(systemName: "person.fill")
         profileNavigationC.tabBarItem = profilItem
         
-        // Setup for feed tab
+        // MARK: - Setup for feed tab
         
         let feedNavigationC = UINavigationController()
         let feedCoordinator = FeedCoordinator(navigationController: feedNavigationC)
         
         feedCoordinator.parentCoordinator = parentCoordinator
         
-        // Create the tabbar item for tabbar.
+        // MARK: - Create the tabbar item for tabbar.
         
         let feddItem = UITabBarItem()
         feddItem.title = "FEED"
         feddItem.image = UIImage(systemName: "house.fill")
         feedNavigationC.tabBarItem = feddItem
         
+        // MARK: - love page saved
+        
+        
         controller.append(feedNavigationC)
         controller.append(profileNavigationC)
         
         navigationController.setViewControllers(controller, animated: true)
         
-        // Add the coordinator into parent's child
+        // MARK: - Add the coordinator into parent's child
         parentCoordinator?.childCoordinators.append(feedCoordinator)
         parentCoordinator?.childCoordinators.append(profileCoordinator)
         

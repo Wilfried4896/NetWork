@@ -20,7 +20,6 @@ class PostTableViewCell: UITableViewCell {
     lazy var authorLabel: UILabel = {
         let author = UILabel()
         author.font = .systemFont(ofSize: 20, weight: .bold)
-        //author.textColor = .black
         author.numberOfLines = 2
         author.translatesAutoresizingMaskIntoConstraints = false
         return author
@@ -48,7 +47,14 @@ class PostTableViewCell: UITableViewCell {
         likes.translatesAutoresizingMaskIntoConstraints = false
         return likes
     }()
-
+    
+    private lazy var waitingAction: UIActivityIndicatorView = {
+        let waiting = UIActivityIndicatorView(style: .medium)
+        waiting.color = .white
+        waiting.translatesAutoresizingMaskIntoConstraints = false
+        return waiting
+    }()
+    
     private lazy var viewsLabel: UILabel = {
         let views = likesViewsDescrption()
         views.translatesAutoresizingMaskIntoConstraints = false
@@ -69,48 +75,50 @@ class PostTableViewCell: UITableViewCell {
         self.authorLabel.text = nil
         self.descriptionLabel.text = nil
         self.imageArticle.image = nil
-        self.likesLabel.text = nil
-        self.viewsLabel.text = nil
+//        self.likesLabel.text = nil
+//        self.viewsLabel.text = nil
     }
 
     private func setUpView() {
-        [likesLabel, viewsLabel].forEach({
-            stackViewLikesViews.addArrangedSubview($0)
-        })
-
-        [authorLabel, imageArticle, descriptionLabel, stackViewLikesViews].forEach({
-            contentView.addSubview($0)
-        })
+        contentView.addSubview(authorLabel)
+        contentView.addSubview(imageArticle)
+        contentView.addSubview(descriptionLabel)
+        contentView.addSubview(waitingAction)
 
         NSLayoutConstraint.activate([
-            // authorLabelContraints
+            // MARK: - authorLabelContraints
             authorLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             authorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             authorLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
 
-            // imageArticleContraints
+            // MARK: - imageArticleContraints
             imageArticle.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 10),
             imageArticle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageArticle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             imageArticle.heightAnchor.constraint(equalToConstant: contentView.frame.width),
 
-            // descriptionLabelContraints
+            // MARK: - descriptionLabelContraints
             descriptionLabel.topAnchor.constraint(equalTo: imageArticle.bottomAnchor, constant: 10),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            
+            // MARK: - waitingActionContraints
+            waitingAction.centerXAnchor.constraint(equalTo: imageArticle.centerXAnchor),
+            waitingAction.centerYAnchor.constraint(equalTo: imageArticle.centerYAnchor),
 
-            // stackViewLikesViewsContraints
-            stackViewLikesViews.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
-            stackViewLikesViews.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            stackViewLikesViews.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            stackViewLikesViews.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            // MARK: - stackViewLikesViewsContraints
+//            stackViewLikesViews.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+//            stackViewLikesViews.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+//            stackViewLikesViews.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+//            stackViewLikesViews.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            
         ])
     }
 
     private func likesViewsDescrption() -> UILabel {
         let likesViews = UILabel()
         likesViews.font = .systemFont(ofSize: 16)
-        //likesViews.textColor = .black
         return likesViews
     }
 
@@ -120,5 +128,25 @@ class PostTableViewCell: UITableViewCell {
         self.descriptionLabel.text = article.description
         self.likesLabel.text = String("Likes: \(article.likes)")
         self.viewsLabel.text = String("Views: \(article.views)")
+    }
+    
+    func configurationNetwork(_ article: Articles) {
+        authorLabel.text = article.author
+        descriptionLabel.text = article.description
+        
+        waitingAction.startAnimating()
+
+        guard let imageData = article.urlToImage else {
+            imageArticle.image = UIImage(systemName: "photo.artframe")
+            imageArticle.tintColor = .systemGray3
+            waitingAction.stopAnimating()
+            return
+        }
+        ProfileManagementNetwork.shared.downloadImg(imageData) { imgaeData in
+            DispatchQueue.main.async {
+                self.imageArticle.image = UIImage(data: imgaeData)
+                self.waitingAction.stopAnimating()
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@
 		EC04F88C285871CC000D11AD /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC04F88B285871CC000D11AD /* PostTableViewCell.swift */; };
 		EC05B67B2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC05B67A2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift */; };
 		EC13E9C328E8DD3E00059FB4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC13E9C228E8DD3E00059FB4 /* CustomButton.swift */; };
+		EC331A5129292B5E00115397 /* ProfileManagementNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC331A5029292B5E00115397 /* ProfileManagementNetwork.swift */; };
 		EC3E5BCB28E1D65D009B3ABE /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = EC3E5BCA28E1D65D009B3ABE /* iOSIntPackage */; };
 		EC49F72428EA077500AE1946 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F72328EA077500AE1946 /* CustomTextField.swift */; };
 		EC49F72628EA09D700AE1946 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F72528EA09D700AE1946 /* FeedModel.swift */; };
@@ -33,6 +34,7 @@
 		EC71AB792923F2CF003EA87A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC71AB782923F2CF003EA87A /* RealmSwift */; };
 		EC71AB7C2923F5A1003EA87A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71AB7B2923F5A1003EA87A /* Model.swift */; };
 		EC71AB7E2923F5CB003EA87A /* ServiceAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71AB7D2923F5CB003EA87A /* ServiceAuth.swift */; };
+		EC75B9E82929820600D8877E /* SavedFileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75B9E72929820600D8877E /* SavedFileController.swift */; };
 		EC819988284B752F00BB7EC8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC819987284B752F00BB7EC8 /* InfoViewController.swift */; };
 		EC819992284DC59300BB7EC8 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC819991284DC59300BB7EC8 /* ProfileHeaderView.swift */; };
 		EC8DEF60285CA53D00B25A65 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */; };
@@ -82,6 +84,7 @@
 		EC04F88D2858BA9B000D11AD /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		EC05B67A2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameOfResidencePlaneteCell.swift; sourceTree = "<group>"; };
 		EC13E9C228E8DD3E00059FB4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		EC331A5029292B5E00115397 /* ProfileManagementNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManagementNetwork.swift; sourceTree = "<group>"; };
 		EC49F72328EA077500AE1946 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		EC49F72528EA09D700AE1946 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		EC49F75228EB747400AE1946 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -102,6 +105,7 @@
 		EC71AB762923F12D003EA87A /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC71AB7B2923F5A1003EA87A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		EC71AB7D2923F5CB003EA87A /* ServiceAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAuth.swift; sourceTree = "<group>"; };
+		EC75B9E72929820600D8877E /* SavedFileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedFileController.swift; sourceTree = "<group>"; };
 		EC819987284B752F00BB7EC8 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		EC819991284DC59300BB7EC8 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				EC49F76028EC39B800AE1946 /* TabBarCoordinator.swift */,
+				EC75B9E62929818300D8877E /* SaveFileAfterDoubleTap */,
 				EC49F76828EC527F00AE1946 /* Info */,
 				EC49F76628EC523500AE1946 /* Login */,
 				EC819990284DC49400BB7EC8 /* Profile */,
@@ -328,6 +333,14 @@
 			path = RealmSwift;
 			sourceTree = "<group>";
 		};
+		EC75B9E62929818300D8877E /* SaveFileAfterDoubleTap */ = {
+			isa = PBXGroup;
+			children = (
+				EC75B9E72929820600D8877E /* SavedFileController.swift */,
+			);
+			path = SaveFileAfterDoubleTap;
+			sourceTree = "<group>";
+		};
 		EC819990284DC49400BB7EC8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +357,7 @@
 				EC49F72528EA09D700AE1946 /* FeedModel.swift */,
 				EC49F77228EC568300AE1946 /* LoginModel.swift */,
 				EC6D5EAD29031BAA001ED565 /* NetWork.swift */,
+				EC331A5029292B5E00115397 /* ProfileManagementNetwork.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -590,6 +604,7 @@
 				EC49F76528EC3D1B00AE1946 /* FeedCoordinator.swift in Sources */,
 				EC49F77528EC5F5100AE1946 /* Binding.swift in Sources */,
 				EC71AB7C2923F5A1003EA87A /* Model.swift in Sources */,
+				EC331A5129292B5E00115397 /* ProfileManagementNetwork.swift in Sources */,
 				EC05B67B2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift in Sources */,
 				EC49F75328EB747400AE1946 /* Coordinator.swift in Sources */,
 				ECA2B88028D9D1F2003677D1 /* User.swift in Sources */,
@@ -603,6 +618,7 @@
 				EC49F77128EC541C00AE1946 /* LoginViewModel.swift in Sources */,
 				EC8DEF62285CC02C00B25A65 /* PhotosViewController.swift in Sources */,
 				ECDE86C928489E2F004A0B1E /* ProfileViewController.swift in Sources */,
+				EC75B9E82929820600D8877E /* SavedFileController.swift in Sources */,
 				EC13E9C328E8DD3E00059FB4 /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,6 +23,8 @@ class AppCoordinator: Coordinator {
         self.window = window
     }
     
+    let url = "https://newsapi.org/v2/everything?q=tesla&from=2022-10-19&sortBy=publishedAt&apiKey=55c8624285d94dcf975066f96611753a"
+    
     func start() {
         
         window?.makeKeyAndVisible()
@@ -34,7 +36,6 @@ class AppCoordinator: Coordinator {
             return
         }
        goToHome()
-        
     }
     
     func finish() {

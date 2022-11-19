@@ -10,13 +10,21 @@ import StorageService
 import FirebaseAuth
 
 class ProfileViewController: UIViewController {
+    let urlString = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=55c8624285d94dcf975066f96611753a"
+    var articleNet: [Articles] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.profileTableHederView.reloadData()
+            }
+        }
+    }
     
     private let article: [Article] = Post.shared.data
     var userCurrent: User = User(login: "login", fullName: "Kali-Linux",
                                  avatar: UIImage(named: "Kali-Linux"), status: "Онлайн")
 
     private lazy var profileTableHederView: UITableView = {
-        let profileTable = UITableView(frame: .zero, style: .grouped)
+        let profileTable = UITableView(frame: .zero, style: .plain)
         profileTable.rowHeight = UITableView.automaticDimension
         profileTable.estimatedRowHeight = 20
         profileTable.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: "Profile")
@@ -29,43 +37,64 @@ class ProfileViewController: UIViewController {
         profileTable.backgroundColor = .white
         return profileTable
     }()
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-//        #if DEBUG
-//            setUpView()
-//        #else
-//            setUpRelease()
-//        #endif
         setUpView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
         self.navigationController?.navigationBar.isHidden = true
     }
     
    private func setUpView() {
-        
-        self.view.addSubview(profileTableHederView)
-
+       self.view.addSubview(profileTableHederView)
+       
+       let gesteTap = UITapGestureRecognizer(target: self, action: #selector(didDoubleTap))
+       gesteTap.numberOfTapsRequired = 2
+       profileTableHederView.addGestureRecognizer(gesteTap)
+       
+       ProfileManagementNetwork.shared.reloadDataNetwork(urlString) { articles in
+           switch articles {
+           case .success(let article):
+                for index in 0..<article.count {
+                    self.articleNet = article[index].articles
+               }
+           case .failure(let error):
+               switch error {
+               case .noDataAvaible:
+                   print(error.localizedDescription)
+               case .invaliddURL:
+                   print(error.localizedDescription)
+               case .dataNotFound:
+                   print(error.localizedDescription)
+               case .noData:
+                   print(error.localizedDescription)
+               }
+           }
+       }
+       
         NSLayoutConstraint.activate([
-            // profileTableHederViewContraints
+            // MARK: -profileTableHederViewContraints
             profileTableHederView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             profileTableHederView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             profileTableHederView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             profileTableHederView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    
+    @objc func didDoubleTap() {
+        guard let indexPath = profileTableHederView.indexPathForSelectedRow else { return }
+        print(articleNet[indexPath.row])
+    }
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        2
+        return 2
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,7 +102,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             case 0:
                 return 1
             case 1:
-                return article.count
+            return articleNet.count
             default:
                 return 0
         }
@@ -90,8 +119,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
                     return cell
                 }
-                let article = self.article[indexPath.row]
-                cellArticle.setUp(with: article)
+//                let article = self.article[indexPath.row]
+                let article = articleNet[indexPath.row]
+                cellArticle.configurationNetwork(article)
                 return cellArticle
 
             default:

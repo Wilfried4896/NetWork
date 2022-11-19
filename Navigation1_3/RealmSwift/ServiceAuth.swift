@@ -29,7 +29,6 @@ class Service: ServiceProtocol {
     }
     
     func signInWithRealm() -> Bool {
-        let realm = try! Realm()
         
         let accounts = realm.objects(Authentification.self)
         let user = Array(accounts)
