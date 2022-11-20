@@ -25,7 +25,6 @@
 		EC49F76D28EC534100AE1946 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F76C28EC534100AE1946 /* FeedViewModel.swift */; };
 		EC49F77128EC541C00AE1946 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F77028EC541C00AE1946 /* LoginViewModel.swift */; };
 		EC49F77328EC568300AE1946 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F77228EC568300AE1946 /* LoginModel.swift */; };
-		EC49F77528EC5F5100AE1946 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F77428EC5F5100AE1946 /* Binding.swift */; };
 		EC5E95AE2854C9980066D549 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E95AD2854C9980066D549 /* LogInViewController.swift */; };
 		EC61A0AD28605895002041E3 /* MyCostumCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC61A0AC28605895002041E3 /* MyCostumCollectionCell.swift */; };
 		EC61DE6B28D6141A00763700 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = EC61DE6A28D6141A00763700 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +34,10 @@
 		EC71AB7C2923F5A1003EA87A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71AB7B2923F5A1003EA87A /* Model.swift */; };
 		EC71AB7E2923F5CB003EA87A /* ServiceAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71AB7D2923F5CB003EA87A /* ServiceAuth.swift */; };
 		EC75B9E82929820600D8877E /* SavedFileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75B9E72929820600D8877E /* SavedFileController.swift */; };
+		EC75B9EB2929840000D8877E /* SavedFileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75B9EA2929840000D8877E /* SavedFileCoordinator.swift */; };
+		EC75B9EE2929871D00D8877E /* DataFromNetwork.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC75B9EC2929871D00D8877E /* DataFromNetwork.xcdatamodeld */; };
+		EC75B9F029298ACE00D8877E /* CoreDataMangement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75B9EF29298ACE00D8877E /* CoreDataMangement.swift */; };
+		EC75BA15292A263900D8877E /* FolderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75BA14292A263900D8877E /* FolderViewCell.swift */; };
 		EC819988284B752F00BB7EC8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC819987284B752F00BB7EC8 /* InfoViewController.swift */; };
 		EC819992284DC59300BB7EC8 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC819991284DC59300BB7EC8 /* ProfileHeaderView.swift */; };
 		EC8DEF60285CA53D00B25A65 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */; };
@@ -96,7 +99,6 @@
 		EC49F76C28EC534100AE1946 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		EC49F77028EC541C00AE1946 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		EC49F77228EC568300AE1946 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		EC49F77428EC5F5100AE1946 /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		EC5E95AD2854C9980066D549 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		EC61A0AC28605895002041E3 /* MyCostumCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCostumCollectionCell.swift; sourceTree = "<group>"; };
 		EC61DE6A28D6141A00763700 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
@@ -106,6 +108,10 @@
 		EC71AB7B2923F5A1003EA87A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		EC71AB7D2923F5CB003EA87A /* ServiceAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAuth.swift; sourceTree = "<group>"; };
 		EC75B9E72929820600D8877E /* SavedFileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedFileController.swift; sourceTree = "<group>"; };
+		EC75B9EA2929840000D8877E /* SavedFileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedFileCoordinator.swift; sourceTree = "<group>"; };
+		EC75B9ED2929871D00D8877E /* DataFromNetwork.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataFromNetwork.xcdatamodel; sourceTree = "<group>"; };
+		EC75B9EF29298ACE00D8877E /* CoreDataMangement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMangement.swift; sourceTree = "<group>"; };
+		EC75BA14292A263900D8877E /* FolderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewCell.swift; sourceTree = "<group>"; };
 		EC819987284B752F00BB7EC8 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		EC819991284DC59300BB7EC8 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
@@ -171,7 +177,6 @@
 			children = (
 				ECDE86B22848935A004A0B1E /* AppDelegate.swift */,
 				EC49F75428EB74E500AE1946 /* AppCoordinator.swift */,
-				EC49F77428EC5F5100AE1946 /* Binding.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */,
 				EC04F88B285871CC000D11AD /* PostTableViewCell.swift */,
 				EC05B67A2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift */,
+				EC75BA14292A263900D8877E /* FolderViewCell.swift */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -336,9 +342,18 @@
 		EC75B9E62929818300D8877E /* SaveFileAfterDoubleTap */ = {
 			isa = PBXGroup;
 			children = (
-				EC75B9E72929820600D8877E /* SavedFileController.swift */,
+				EC75B9EA2929840000D8877E /* SavedFileCoordinator.swift */,
+				EC75B9E9292983DA00D8877E /* VC */,
 			);
 			path = SaveFileAfterDoubleTap;
+			sourceTree = "<group>";
+		};
+		EC75B9E9292983DA00D8877E /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				EC75B9E72929820600D8877E /* SavedFileController.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 		EC819990284DC49400BB7EC8 /* Profile */ = {
@@ -358,6 +373,7 @@
 				EC49F77228EC568300AE1946 /* LoginModel.swift */,
 				EC6D5EAD29031BAA001ED565 /* NetWork.swift */,
 				EC331A5029292B5E00115397 /* ProfileManagementNetwork.swift */,
+				EC75B9EF29298ACE00D8877E /* CoreDataMangement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -387,6 +403,7 @@
 				ECDE86BB2848935C004A0B1E /* Assets.xcassets */,
 				ECDE86BD2848935C004A0B1E /* LaunchScreen.storyboard */,
 				ECDE86C02848935C004A0B1E /* Info.plist */,
+				EC75B9EC2929871D00D8877E /* DataFromNetwork.xcdatamodeld */,
 			);
 			path = Navigation1_3;
 			sourceTree = "<group>";
@@ -600,13 +617,16 @@
 				EC49F72428EA077500AE1946 /* CustomTextField.swift in Sources */,
 				EC8DEF60285CA53D00B25A65 /* PhotosTableViewCell.swift in Sources */,
 				EC49F77328EC568300AE1946 /* LoginModel.swift in Sources */,
+				EC75B9F029298ACE00D8877E /* CoreDataMangement.swift in Sources */,
 				EC8DEF64285CC0AF00B25A65 /* PhotosCollectionViewCell.swift in Sources */,
 				EC49F76528EC3D1B00AE1946 /* FeedCoordinator.swift in Sources */,
-				EC49F77528EC5F5100AE1946 /* Binding.swift in Sources */,
+				EC75BA15292A263900D8877E /* FolderViewCell.swift in Sources */,
+				EC75B9EB2929840000D8877E /* SavedFileCoordinator.swift in Sources */,
 				EC71AB7C2923F5A1003EA87A /* Model.swift in Sources */,
 				EC331A5129292B5E00115397 /* ProfileManagementNetwork.swift in Sources */,
 				EC05B67B2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift in Sources */,
 				EC49F75328EB747400AE1946 /* Coordinator.swift in Sources */,
+				EC75B9EE2929871D00D8877E /* DataFromNetwork.xcdatamodeld in Sources */,
 				ECA2B88028D9D1F2003677D1 /* User.swift in Sources */,
 				ECDE86D12848F7FD004A0B1E /* FeedViewController.swift in Sources */,
 				EC5E95AE2854C9980066D549 /* LogInViewController.swift in Sources */,
@@ -952,6 +972,19 @@
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		EC75B9EC2929871D00D8877E /* DataFromNetwork.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EC75B9ED2929871D00D8877E /* DataFromNetwork.xcdatamodel */,
+			);
+			currentVersion = EC75B9ED2929871D00D8877E /* DataFromNetwork.xcdatamodel */;
+			path = DataFromNetwork.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ECDE86A72848935A004A0B1E /* Project object */;
 }

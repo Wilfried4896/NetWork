@@ -23,13 +23,11 @@ extension WordError: CustomStringConvertible {
     }
 }
 protocol FeedViewModelProtocol {
-    var text: Binding<String> { get set }
     func goToInfo()
 }
 
 class FeedViewModel: FeedViewModelProtocol {
     
-    var text = Binding<String>("")
     //var color = Binding<UIColor>(.white)
     
     let feedModel = FeedModel()

@@ -102,12 +102,12 @@ class PostTableViewCell: UITableViewCell {
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            
+
             // MARK: - waitingActionContraints
             waitingAction.centerXAnchor.constraint(equalTo: imageArticle.centerXAnchor),
             waitingAction.centerYAnchor.constraint(equalTo: imageArticle.centerYAnchor),
 
-            // MARK: - stackViewLikesViewsContraints
+//             MARK: - stackViewLikesViewsContraints
 //            stackViewLikesViews.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
 //            stackViewLikesViews.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
 //            stackViewLikesViews.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),

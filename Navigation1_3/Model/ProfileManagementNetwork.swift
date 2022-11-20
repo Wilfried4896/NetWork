@@ -34,7 +34,6 @@ struct ProfileManagementNetwork {
             completion(.failure(.invaliddURL))
             return
         }
-        
         let dataTask = session.dataTask(with: url) { data, _, _ in
             guard let jsonData = data else {
                 completion(.failure(.dataNotFound))
@@ -55,11 +54,8 @@ struct ProfileManagementNetwork {
         guard let url = URL(string: urlImage) else { return }
         
         session.dataTask(with: url) { data, _, _ in
-            
             guard let imageData = data else { return }
-            
             completion(imageData)
-            
         }.resume()
     }
 }

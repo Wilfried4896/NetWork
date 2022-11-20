@@ -52,18 +52,28 @@ class TabBarCoordinator: Coordinator {
         feedNavigationC.tabBarItem = feddItem
         
         // MARK: - love page saved
+        let savedFileNavigation = UINavigationController()
+        let savedFileCoordinator = SavedFileCoordinator(navigation: savedFileNavigation)
+        savedFileCoordinator.parentCoordinator = parentCoordinator
         
+        let saveFileItem = UITabBarItem()
+        saveFileItem.title = "OFFLINE"
+        saveFileItem.image = UIImage(systemName: "square.and.arrow.up.circle.fill")
+        savedFileNavigation.tabBarItem = saveFileItem
         
         controller.append(feedNavigationC)
         controller.append(profileNavigationC)
+        controller.append(savedFileNavigation)
         
         navigationController.setViewControllers(controller, animated: true)
         
         // MARK: - Add the coordinator into parent's child
         parentCoordinator?.childCoordinators.append(feedCoordinator)
         parentCoordinator?.childCoordinators.append(profileCoordinator)
+        parentCoordinator?.childCoordinators.append(savedFileCoordinator)
         
         feedCoordinator.start()
         profileCoordinator.start()
+        savedFileCoordinator.start()
     }
 }

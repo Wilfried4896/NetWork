@@ -87,7 +87,19 @@ class ProfileViewController: UIViewController {
     
     @objc func didDoubleTap() {
         guard let indexPath = profileTableHederView.indexPathForSelectedRow else { return }
-        print(articleNet[indexPath.row])
+        
+        let nameArticle = articleNet[indexPath.row].author
+        let detailArticle = articleNet[indexPath.row].description
+        var imageArticle = Data()
+        if let image = articleNet[indexPath.row].urlToImage {
+            ProfileManagementNetwork.shared.downloadImg(image) { imgaeData in
+                imageArticle = imgaeData
+            }
+        }
+        
+        if let nameArticle, let detailArticle {
+            CoreDataMangement.shared.addFolder(nameArticle, imageArticle, detailArticle)
+        }
     }
 }
 
@@ -134,11 +146,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         switch section {
             case 0:
             let user = Auth.auth().currentUser
-                guard  let profileHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "Profile") as? ProfileHeaderView, user != nil else { return nil }
-                tableView.backgroundColor = .systemGroupedBackground
-                profileHeader.configurationProfile(profile: userCurrent)
-                profileHeader.fullNameLabel.text = user?.email
-                return profileHeader
+            let profileHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "Profile") as! ProfileHeaderView 
+            tableView.backgroundColor = .systemGroupedBackground
+            profileHeader.configurationProfile(profile: userCurrent)
+            profileHeader.fullNameLabel.text = user?.email
+            return profileHeader
 
             default:
                 return nil

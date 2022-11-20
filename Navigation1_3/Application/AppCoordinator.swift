@@ -22,15 +22,14 @@ class AppCoordinator: Coordinator {
     init(window: UIWindow?) {
         self.window = window
     }
-    
-    let url = "https://newsapi.org/v2/everything?q=tesla&from=2022-10-19&sortBy=publishedAt&apiKey=55c8624285d94dcf975066f96611753a"
+
     
     func start() {
         
         window?.makeKeyAndVisible()
         FirebaseApp.configure()
         let service = Service()
-        
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
         guard service.signInWithRealm() else {
             goToLogin()
             return
