@@ -19,6 +19,8 @@ class SavedFileCoordinator: Coordinator {
     func start() {
         let vc = SavedFileController()
         vc.coordiantor = self
+        vc.title = "Favorites"
+        navigation.navigationBar.prefersLargeTitles = true
         navigation.pushViewController(vc, animated: true)
     }
 }

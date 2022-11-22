@@ -149,4 +149,18 @@ class PostTableViewCell: UITableViewCell {
             }
         }
     }
+    
+    func configurationCell(_ folder: Folder) {
+        authorLabel.text = folder.name
+        descriptionLabel.text = folder.detail
+        guard let image = folder.image else {
+            imageArticle.image = UIImage(systemName: "photo.artframe")
+            return
+        }
+        ProfileManagementNetwork.shared.downloadImg(image) { imgaeData in
+            DispatchQueue.main.async {
+                self.imageArticle.image = UIImage(data: imgaeData)
+            }
+        }
+    }
 }

@@ -59,7 +59,7 @@ class CoreDataMangement {
         }
     }
     
-    func addFolder(_ nameFile: String, _ imageFile: Data, _ detailFile: String) {
+    func addFolder(_ nameFile: String, _ imageFile: String, _ detailFile: String) {
         let folder = Folder(context: persistentContainer.viewContext)
         folder.image = imageFile
         folder.name = nameFile

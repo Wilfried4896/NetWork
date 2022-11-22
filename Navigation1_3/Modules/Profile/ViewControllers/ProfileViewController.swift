@@ -90,14 +90,9 @@ class ProfileViewController: UIViewController {
         
         let nameArticle = articleNet[indexPath.row].author
         let detailArticle = articleNet[indexPath.row].description
-        var imageArticle = Data()
-        if let image = articleNet[indexPath.row].urlToImage {
-            ProfileManagementNetwork.shared.downloadImg(image) { imgaeData in
-                imageArticle = imgaeData
-            }
-        }
+        let imageArticle = articleNet[indexPath.row].urlToImage
         
-        if let nameArticle, let detailArticle {
+        if let nameArticle, let detailArticle, let imageArticle {
             CoreDataMangement.shared.addFolder(nameArticle, imageArticle, detailArticle)
         }
     }

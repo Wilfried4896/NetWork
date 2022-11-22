@@ -23,7 +23,7 @@ class SavedFileController: UITableViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        tableView.register(FolderViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +38,7 @@ class SavedFileController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FolderViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
         let article = folder[indexPath.row]
         cell.configurationCell(article)
         return cell

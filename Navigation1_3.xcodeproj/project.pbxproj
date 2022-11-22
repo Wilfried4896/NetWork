@@ -37,7 +37,6 @@
 		EC75B9EB2929840000D8877E /* SavedFileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75B9EA2929840000D8877E /* SavedFileCoordinator.swift */; };
 		EC75B9EE2929871D00D8877E /* DataFromNetwork.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC75B9EC2929871D00D8877E /* DataFromNetwork.xcdatamodeld */; };
 		EC75B9F029298ACE00D8877E /* CoreDataMangement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75B9EF29298ACE00D8877E /* CoreDataMangement.swift */; };
-		EC75BA15292A263900D8877E /* FolderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75BA14292A263900D8877E /* FolderViewCell.swift */; };
 		EC819988284B752F00BB7EC8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC819987284B752F00BB7EC8 /* InfoViewController.swift */; };
 		EC819992284DC59300BB7EC8 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC819991284DC59300BB7EC8 /* ProfileHeaderView.swift */; };
 		EC8DEF60285CA53D00B25A65 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */; };
@@ -111,7 +110,6 @@
 		EC75B9EA2929840000D8877E /* SavedFileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedFileCoordinator.swift; sourceTree = "<group>"; };
 		EC75B9ED2929871D00D8877E /* DataFromNetwork.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataFromNetwork.xcdatamodel; sourceTree = "<group>"; };
 		EC75B9EF29298ACE00D8877E /* CoreDataMangement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMangement.swift; sourceTree = "<group>"; };
-		EC75BA14292A263900D8877E /* FolderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewCell.swift; sourceTree = "<group>"; };
 		EC819987284B752F00BB7EC8 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		EC819991284DC59300BB7EC8 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
@@ -211,7 +209,6 @@
 				EC8DEF5F285CA53D00B25A65 /* PhotosTableViewCell.swift */,
 				EC04F88B285871CC000D11AD /* PostTableViewCell.swift */,
 				EC05B67A2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift */,
-				EC75BA14292A263900D8877E /* FolderViewCell.swift */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -620,7 +617,6 @@
 				EC75B9F029298ACE00D8877E /* CoreDataMangement.swift in Sources */,
 				EC8DEF64285CC0AF00B25A65 /* PhotosCollectionViewCell.swift in Sources */,
 				EC49F76528EC3D1B00AE1946 /* FeedCoordinator.swift in Sources */,
-				EC75BA15292A263900D8877E /* FolderViewCell.swift in Sources */,
 				EC75B9EB2929840000D8877E /* SavedFileCoordinator.swift in Sources */,
 				EC71AB7C2923F5A1003EA87A /* Model.swift in Sources */,
 				EC331A5129292B5E00115397 /* ProfileManagementNetwork.swift in Sources */,

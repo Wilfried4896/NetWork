@@ -57,7 +57,7 @@ class TabBarCoordinator: Coordinator {
         savedFileCoordinator.parentCoordinator = parentCoordinator
         
         let saveFileItem = UITabBarItem()
-        saveFileItem.title = "OFFLINE"
+        //saveFileItem.title = "OFFLINE"
         saveFileItem.image = UIImage(systemName: "square.and.arrow.up.circle.fill")
         savedFileNavigation.tabBarItem = saveFileItem
         
