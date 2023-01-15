@@ -1,0 +1,75 @@
+/* 
+  Localizable.strings
+  Navigation1_3
+
+  Created by Вилфриэд Оди on 15.01.2023.
+  
+*/
+
+// MARK: - AppCoordinator
+"appCoordinator_Out_in_App" = "Выход";
+
+// MARK: - View
+
+// ProfileHeaderView
+"setStatusButton" = "Установить статус";
+"statusTextField" = "Установите свой статус";
+"actionButtonsetStatus" = "Нет статуса";
+
+// PhotosTableViewCell
+"photoLabel" = "Фотографии";
+
+// MARK: - Modules
+
+// TabBarCoordinator
+"profilItem_title" = "Профиль";
+"feddItem_title" = "Актуальность";
+"saveFileItem_title" = "Оффлайн";
+
+// SavedFileCoordinator
+"SavedFileController_title" = "Избранное";
+
+// InfoViewController
+"InfoViewController_title" = "Информация";
+"planeteLabel_text" = "Ошибка: неверная планета";
+"tableView_title" = "Название жителей планеты Татуин";
+
+// LogInViewController
+//// view
+"emailLogin_placeholder" = "Электронная почта";
+"passwordLogin_placeholder" = "Пароль";
+"logInButton_title" = "Авторизоваться";
+"buttonGetPassword_title" = "Подобрать пароль";
+"ShowAlert_UIAlertAction_title" = "Хорошо";
+
+//// func actionButton
+"logInButton_actionButton_error_title" = "Ошибка";
+"logInButton_actionButton_error_message" = "Электронная почта или пароль пусты";
+
+//// RealmSwift
+"message_alert_title" = "Аккаунт не найден";
+"message_alert_message" = "Вы хотите его создать ?";
+"message_destructive_title" = "Новый аккаунт";
+"message_cancel_title" = "Отмена";
+"ShowAlert_RealmSwift" = "Внимание";
+
+// PhotosViewController
+"PhotosViewController_title" = "Фотографии";
+
+// FeedViewController
+"checkGuessButton_title" = "Проверять";
+"textFielFeed_placeholderTitle" = "Введите секретный код";
+"feedViewController_title" = "Новости";
+
+// ProfileViewController
+"userCurrent_status" = "Онлайн";
+
+// MARK: - Enum
+// NetWorkError and DownloadError
+"noDataAvaible_value" = "Данные об ошибках";
+"invaliddURL_value" = "Неверная ссылка, проверьте ссылку";
+"dataNotFound_value" = "Данные не найдены";
+"noData_value" = "Данные не найдены";
+
+// ApiError
+"loginError_value" = "Логин или пароль неверный";
