@@ -39,8 +39,8 @@ class SavedFileController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
-        let article = folder[indexPath.row]
-        cell.configurationCell(article)
+        let folder = folder[indexPath.row]
+        cell.configurationCell(folder)
         return cell
     }
     

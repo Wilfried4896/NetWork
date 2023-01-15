@@ -88,7 +88,7 @@ struct NetWorking {
                 let decoder = JSONDecoder()
                 let anwswer = try decoder.decode(Planets.self, from: jsonData)
                 
-                guard anwswer.name == "\(searchPlanet)" else {
+                guard anwswer.name == searchPlanet else {
                     completion(.failure(.noData))
                     return
                 }
