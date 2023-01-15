@@ -33,7 +33,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     }()
 
     private lazy var setStatusButton: CustomButton = {
-        let show = CustomButton(title: "Set status", bgColor: .systemBlue, tilteColor: .white)
+        let show = CustomButton(title: Localization.setStatusButton.rawValue~, bgColor: .systemBlue, tilteColor: .white)
         show.layer.cornerRadius = 10
         show.layer.shadowRadius = 4
         show.layer.borderColor = UIColor.black.cgColor
@@ -52,7 +52,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         textFiel.layer.borderColor = UIColor.black.cgColor
         textFiel.layer.borderWidth = 1
         textFiel.layer.cornerRadius = 10
-        textFiel.placeholder = "Set your status"
+        textFiel.placeholder = Localization.statusTextField.rawValue~
         textFiel.delegate = self
         return textFiel
     }()
@@ -127,7 +127,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     private func actionButtonsetStatus() {
         setStatusButton.actionButton = {
             guard let statusText = self.statusText else {
-                self.statusLabel.text = "Нет статуса"
+                self.statusLabel.text = Localization.actionButtonsetStatus.rawValue~
                 return
             }
             self.statusLabel.text = statusText

@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController {
     
     private let article: [Article] = Post.shared.data
     var userCurrent: User = User(login: "login", fullName: "Kali-Linux",
-                                 avatar: UIImage(named: "Kali-Linux"), status: "Онлайн")
+                                 avatar: UIImage(named: "Kali-Linux"), status: Localization.userCurrent_status.rawValue~)
 
     private lazy var profileTableHederView: UITableView = {
         let profileTable = UITableView(frame: .zero, style: .plain)
@@ -65,13 +65,13 @@ class ProfileViewController: UIViewController {
            case .failure(let error):
                switch error {
                case .noDataAvaible:
-                   print(error.localizedDescription)
+                   print(Localization.noDataAvaible_value.rawValue~)
                case .invaliddURL:
-                   print(error.localizedDescription)
+                   print(Localization.invaliddURL_value.rawValue~)
                case .dataNotFound:
-                   print(error.localizedDescription)
+                   print(Localization.dataNotFound_value.rawValue~)
                case .noData:
-                   print(error.localizedDescription)
+                   print(Localization.noData_value.rawValue~)
                }
            }
        }

@@ -57,7 +57,7 @@ class PhotosViewController: UIViewController {
     }
     
     private func setUpphotosCollection() {
-        navigationItem.title = "Photos Gallery"
+        navigationItem.title = Localization.PhotosViewController_title.rawValue~
         view.addSubview(photosCollectionView)
         view.backgroundColor = .white
         

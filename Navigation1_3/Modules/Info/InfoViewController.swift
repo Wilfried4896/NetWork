@@ -63,7 +63,7 @@ class InfoViewController: UIViewController {
     
     private func configurationInfoView() {
         view.backgroundColor = .systemBackground
-        navigationItem.title = "Информация"
+        navigationItem.title = Localization.InfoViewController_title.rawValue~
         view.addSubview(titleLabel)
         view.addSubview(planeteLabel)
         view.addSubview(tableNameView)
@@ -105,7 +105,10 @@ class InfoViewController: UIViewController {
             case .success(let planete):
 
                 DispatchQueue.main.async {
-                    self?.planeteLabel.text = "Планете \(planete.name) имеет \(planete.period ?? "0") дней"
+                    if let period = planete.period {
+                        //self?.planeteLabel.text = "Планете \(planete.name) имеет \(planete.period ?? "0") дней"
+                        self?.planeteLabel.text = locationDic(string: "day_planet", namePlanet: planete.name, dayNumber: Int(period) ?? 0)
+                    }
                 }
                 
                 for resident in planete.residents {
@@ -124,15 +127,15 @@ class InfoViewController: UIViewController {
                 case .noData:
                     
                     DispatchQueue.main.async { [weak self] in
-                        self?.planeteLabel.text = "Error: неправильный планет"
+                        self?.planeteLabel.text = Localization.planeteLabel_text.rawValue~
                     }
                     
                 case .noDataAvaible:
-                    print("Error Data")
+                    print(Localization.noDataAvaible_value.rawValue~)
                 case .invaliddURL:
-                    print("Неправильная сслыка, проверьте сслыку")
+                    print(Localization.invaliddURL_value.rawValue~)
                 case .dataNotFound:
-                    print("Data don't found")
+                    print(Localization.dataNotFound_value.rawValue~)
                 }
             }
         }
@@ -156,7 +159,7 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Имя жителей планата Татуин"
+        return Localization.tableView_title.rawValue~
     }
 }
 

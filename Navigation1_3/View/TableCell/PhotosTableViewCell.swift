@@ -18,7 +18,7 @@ class PhotosTableViewCell: UITableViewCell {
 
     private lazy var photoLabel: UILabel = {
         let tilte = UILabel()
-        tilte.text = "Photos"
+        tilte.text = Localization.photoLabel.rawValue~
         tilte.font = .systemFont(ofSize: 24, weight: .bold)
 //        tilte.textColor = .black
         tilte.translatesAutoresizingMaskIntoConstraints = false

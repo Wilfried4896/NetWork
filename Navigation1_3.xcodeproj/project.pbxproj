@@ -30,6 +30,9 @@
 		EC61DE6B28D6141A00763700 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = EC61DE6A28D6141A00763700 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC61DE7428D6152D00763700 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC04F88D2858BA9B000D11AD /* Post.swift */; };
 		EC6D5EAE29031BAA001ED565 /* NetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6D5EAD29031BAA001ED565 /* NetWork.swift */; };
+		EC704504297413FC008EF1E5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC704506297413FC008EF1E5 /* Localizable.strings */; };
+		EC70450929741686008EF1E5 /* LocalizationShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC70450829741686008EF1E5 /* LocalizationShow.swift */; };
+		EC704517297453E7008EF1E5 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = EC704519297453E7008EF1E5 /* Localizable.stringsdict */; };
 		EC71AB792923F2CF003EA87A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC71AB782923F2CF003EA87A /* RealmSwift */; };
 		EC71AB7C2923F5A1003EA87A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71AB7B2923F5A1003EA87A /* Model.swift */; };
 		EC71AB7E2923F5CB003EA87A /* ServiceAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71AB7D2923F5CB003EA87A /* ServiceAuth.swift */; };
@@ -102,6 +105,12 @@
 		EC61A0AC28605895002041E3 /* MyCostumCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCostumCollectionCell.swift; sourceTree = "<group>"; };
 		EC61DE6A28D6141A00763700 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		EC6D5EAD29031BAA001ED565 /* NetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWork.swift; sourceTree = "<group>"; };
+		EC7044F329740DE6008EF1E5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		EC704505297413FC008EF1E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EC70450729741402008EF1E5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EC70450829741686008EF1E5 /* LocalizationShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationShow.swift; sourceTree = "<group>"; };
+		EC704518297453E7008EF1E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		EC70451A297453EC008EF1E5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		EC71AB752923F12D003EA87A /* Navigation1_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation1_3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC71AB762923F12D003EA87A /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC71AB7B2923F5A1003EA87A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -401,6 +410,9 @@
 				ECDE86BD2848935C004A0B1E /* LaunchScreen.storyboard */,
 				ECDE86C02848935C004A0B1E /* Info.plist */,
 				EC75B9EC2929871D00D8877E /* DataFromNetwork.xcdatamodeld */,
+				EC704506297413FC008EF1E5 /* Localizable.strings */,
+				EC70450829741686008EF1E5 /* LocalizationShow.swift */,
+				EC704519297453E7008EF1E5 /* Localizable.stringsdict */,
 			);
 			path = Navigation1_3;
 			sourceTree = "<group>";
@@ -488,6 +500,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = ECDE86A62848935A004A0B1E;
 			packageReferences = (
@@ -517,7 +530,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECDE86BF2848935C004A0B1E /* LaunchScreen.storyboard in Resources */,
+				EC704504297413FC008EF1E5 /* Localizable.strings in Resources */,
 				ECDE86BC2848935C004A0B1E /* Assets.xcassets in Resources */,
+				EC704517297453E7008EF1E5 /* Localizable.stringsdict in Resources */,
 				ECC2A90C290F1B1E000C0742 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,6 +639,7 @@
 				EC49F75328EB747400AE1946 /* Coordinator.swift in Sources */,
 				EC75B9EE2929871D00D8877E /* DataFromNetwork.xcdatamodeld in Sources */,
 				ECA2B88028D9D1F2003677D1 /* User.swift in Sources */,
+				EC70450929741686008EF1E5 /* LocalizationShow.swift in Sources */,
 				ECDE86D12848F7FD004A0B1E /* FeedViewController.swift in Sources */,
 				EC5E95AE2854C9980066D549 /* LogInViewController.swift in Sources */,
 				EC819992284DC59300BB7EC8 /* ProfileHeaderView.swift in Sources */,
@@ -650,10 +666,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		EC704506297413FC008EF1E5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC704505297413FC008EF1E5 /* en */,
+				EC70450729741402008EF1E5 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		EC704519297453E7008EF1E5 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC704518297453E7008EF1E5 /* en */,
+				EC70451A297453EC008EF1E5 /* ru */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
 		ECDE86BD2848935C004A0B1E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ECDE86BE2848935C004A0B1E /* Base */,
+				EC7044F329740DE6008EF1E5 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

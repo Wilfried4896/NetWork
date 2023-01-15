@@ -33,7 +33,7 @@ class TabBarCoordinator: Coordinator {
         
         // MARK: - Create the tabbar item for tabbar.
         let profilItem = UITabBarItem()
-        profilItem.title = "PROFILE"
+        profilItem.title = Localization.profilItem_title.rawValue~
         profilItem.image = UIImage(systemName: "person.fill")
         profileNavigationC.tabBarItem = profilItem
         
@@ -47,7 +47,7 @@ class TabBarCoordinator: Coordinator {
         // MARK: - Create the tabbar item for tabbar.
         
         let feddItem = UITabBarItem()
-        feddItem.title = "FEED"
+        feddItem.title = Localization.feddItem_title.rawValue~
         feddItem.image = UIImage(systemName: "house.fill")
         feedNavigationC.tabBarItem = feddItem
         
@@ -57,7 +57,7 @@ class TabBarCoordinator: Coordinator {
         savedFileCoordinator.parentCoordinator = parentCoordinator
         
         let saveFileItem = UITabBarItem()
-        //saveFileItem.title = "OFFLINE"
+        saveFileItem.title = Localization.saveFileItem_title.rawValue~
         saveFileItem.image = UIImage(systemName: "square.and.arrow.up.circle.fill")
         savedFileNavigation.tabBarItem = saveFileItem
         
