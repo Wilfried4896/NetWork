@@ -65,9 +65,8 @@ class AppCoordinator: Coordinator {
         window?.makeKeyAndVisible()
         FirebaseApp.configure()
         let service = Service()
-
         guard service.signInWithRealm() else {
-            goToHome()
+            goToLogin()
             return
         }
        goToHome()
