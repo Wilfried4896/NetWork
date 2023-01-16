@@ -35,7 +35,7 @@ class InfoViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let titleInfo = UILabel()
         titleInfo.numberOfLines = 0
-        //titleInfo.tintColor = .systemGray3
+//        titleInfo.tintColor = .systemGray3
         titleInfo.font = .systemFont(ofSize: 20, weight: .bold)
         titleInfo.translatesAutoresizingMaskIntoConstraints = false
         return titleInfo
@@ -44,7 +44,7 @@ class InfoViewController: UIViewController {
     private lazy var planeteLabel: UILabel = {
         let periode = UILabel()
         periode.numberOfLines = 0
-        //periode.tintColor = .systemGray3
+//        periode.tintColor = UIColor.createColor(lightMode: UIColor.label, darkMode: .red)
         periode.font = .systemFont(ofSize: 20, weight: .bold)
         periode.translatesAutoresizingMaskIntoConstraints = false
         return periode
@@ -62,8 +62,8 @@ class InfoViewController: UIViewController {
     }
     
     private func configurationInfoView() {
-        view.backgroundColor = .systemBackground
-        navigationItem.title = Localization.InfoViewController_title.rawValue~
+        view.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .black)
+        navigationItem.title = "InfoViewController_title".localized
         view.addSubview(titleLabel)
         view.addSubview(planeteLabel)
         view.addSubview(tableNameView)
@@ -127,15 +127,15 @@ class InfoViewController: UIViewController {
                 case .noData:
                     
                     DispatchQueue.main.async { [weak self] in
-                        self?.planeteLabel.text = Localization.planeteLabel_text.rawValue~
+                        self?.planeteLabel.text = "planeteLabel_text".localized
                     }
                     
                 case .noDataAvaible:
-                    print(Localization.noDataAvaible_value.rawValue~)
+                    print("noDataAvaible_value".localized)
                 case .invaliddURL:
-                    print(Localization.invaliddURL_value.rawValue~)
+                    print("invaliddURL_value".localized)
                 case .dataNotFound:
-                    print(Localization.dataNotFound_value.rawValue~)
+                    print("dataNotFound_value".localized)
                 }
             }
         }
@@ -159,7 +159,7 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Localization.tableView_title.rawValue~
+        return "tableView_title".localized
     }
 }
 

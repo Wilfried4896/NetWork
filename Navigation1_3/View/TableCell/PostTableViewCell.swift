@@ -28,7 +28,7 @@ class PostTableViewCell: UITableViewCell {
     private lazy var descriptionLabel: UILabel = {
         let description = UILabel()
         description.font = .systemFont(ofSize: 14)
-        description.textColor = .systemGray
+        description.textColor = UIColor.createColor(lightMode: .systemGray, darkMode: .white)
         description.numberOfLines = 0
         description.translatesAutoresizingMaskIntoConstraints = false
         return description
@@ -37,7 +37,7 @@ class PostTableViewCell: UITableViewCell {
     lazy var imageArticle: UIImageView = {
         let avatare = UIImageView()
         avatare.contentMode = .scaleAspectFit
-        avatare.backgroundColor = .black
+        avatare.backgroundColor = UIColor.createColor(lightMode: .black, darkMode: .systemGray)
         avatare.translatesAutoresizingMaskIntoConstraints = false
         return avatare
     }()

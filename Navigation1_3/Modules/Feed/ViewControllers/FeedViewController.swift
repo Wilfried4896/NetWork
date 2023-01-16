@@ -16,13 +16,13 @@ class FeedViewController: UIViewController {
     weak var coordinator: FeedCoordinator?
     
     private lazy var checkGuessButton: CustomButton = {
-        let button = CustomButton(title: Localization.checkGuessButton_title.rawValue~, bgColor: .black, tilteColor: .white)
+        let button = CustomButton(title: "checkGuessButton_title".localized~, bgColor: UIColor.createColor(lightMode: .black, darkMode: .systemGray3), tilteColor: .white)
         button.layer.cornerRadius = 10
         return button
     }()
 
     private lazy var textFielFeed: CustomTextField = {
-        let textField = CustomTextField(placeholderTitle: Localization.textFielFeed_placeholderTitle.rawValue~)
+        let textField = CustomTextField(placeholderTitle: "textFielFeed_placeholderTitle".localized)
         textField.delegate = self
         return textField
     }()
@@ -40,8 +40,8 @@ class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = Localization.feedViewController_title.rawValue~
-        view.backgroundColor = .white
+        self.navigationItem.title = "feedViewController_title".localized
+        view.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .black)
         setUpStackView()
     }
     
@@ -79,7 +79,7 @@ class FeedViewController: UIViewController {
     
     func ShowAlert(_ title: String, _ message: String) {
         let messageError = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let actionMessage = UIAlertAction(title: Localization.ShowAlert_UIAlertAction_title.rawValue~, style: .destructive)
+        let actionMessage = UIAlertAction(title: "ShowAlert_UIAlertAction_title".localized, style: .destructive)
         
         messageError.addAction(actionMessage)
         self.present(messageError, animated: true)

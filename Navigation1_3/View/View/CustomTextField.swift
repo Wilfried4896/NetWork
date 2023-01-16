@@ -14,7 +14,7 @@ class CustomTextField: UITextField {
         
         placeholder = placeholderTitle
         clearButtonMode = .whileEditing
-        layer.borderColor = UIColor.systemGray.cgColor
+        layer.borderColor = UIColor.createColor(lightMode: UIColor.systemGray, darkMode: .white).cgColor
         font = .systemFont(ofSize: 20)
         translatesAutoresizingMaskIntoConstraints = false
     }

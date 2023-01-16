@@ -38,7 +38,7 @@ class LogInViewController: UIViewController {
     private lazy var emailLogin: UITextField = {
         let email = parametrTextField()
         email.tag = 0
-        email.placeholder = Localization.emailLogin_placeholder.rawValue~
+        email.placeholder = "emailLogin_placeholder".localized
         email.keyboardType = .emailAddress
         return email
     }()
@@ -46,19 +46,19 @@ class LogInViewController: UIViewController {
     private lazy var passwordLogin: UITextField = {
         let password = parametrTextField()
         password.tag = 1
-        password.placeholder = Localization.passwordLogin_placeholder.rawValue~
+        password.placeholder = "passwordLogin_placeholder".localized
         password.isSecureTextEntry = true
         return password
     }()
 
     private lazy var logInButton: CustomButton = {
-        let logIn = CustomButton(title: Localization.logInButton_title.rawValue~ ,bgColor: UIColor(patternImage: UIImage(named: "blue_pixel")!) ,tilteColor: .white)
+        let logIn = CustomButton(title: "logInButton_title".localized ,bgColor: UIColor.createColor(lightMode: UIColor(patternImage: UIImage(named: "blue_pixel")!), darkMode: .systemGray3) ,tilteColor: .white)
         logIn.layer.cornerRadius = 10
         return logIn
     }()
     
     private lazy var buttonGetPassword: CustomButton = {
-        let getPassword = CustomButton(title: Localization.buttonGetPassword_title.rawValue~ , bgColor: .systemBlue, tilteColor: .white)
+        let getPassword = CustomButton(title: "buttonGetPassword_title".localized, bgColor: .systemBlue, tilteColor: .white)
         getPassword.layer.cornerRadius = 10
         return getPassword
     }()
@@ -85,7 +85,7 @@ class LogInViewController: UIViewController {
     
     private func setUpLogInView() {
         
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.addSubview(scrollView)
         
         scrollView.addSubview(logoVk)
@@ -136,7 +136,7 @@ class LogInViewController: UIViewController {
     func parametrTextField() -> UITextField {
         let textField = UITextField()
         textField.layer.cornerRadius = 10
-        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.layer.borderColor = UIColor.createColor(lightMode: UIColor.lightGray, darkMode: .white).cgColor
         textField.layer.borderWidth = 0.5
         textField.backgroundColor = UIColor.systemGray6
         textField.autocapitalizationType = .none
@@ -173,7 +173,7 @@ class LogInViewController: UIViewController {
     
     func ShowAlert(_ title: String, _ message: String) {
         let messageError = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        messageError.addAction(UIAlertAction(title: Localization.ShowAlert_UIAlertAction_title.rawValue~, style: .destructive))
+        messageError.addAction(UIAlertAction(title: "ShowAlert_UIAlertAction_title".localized, style: .destructive))
         present(messageError, animated: true)
     }
     
@@ -182,7 +182,7 @@ class LogInViewController: UIViewController {
 
             guard let email = self.emailLogin.text, !email.isEmpty,
                     let password = self.passwordLogin.text, !password.isEmpty else {
-                self.ShowAlert(Localization.logInButton_actionButton_error_title.rawValue~, Localization.logInButton_actionButton_error_message.rawValue~)
+                self.ShowAlert("logInButton_actionButton_error_title".localized, "logInButton_actionButton_error_message".localized)
                 return
             }
             
@@ -195,17 +195,17 @@ class LogInViewController: UIViewController {
                 case .failure(let error):
                     switch error.code {
                     case .userNotFound:
-                        let message = UIAlertController(title: Localization.message_alert_title.rawValue~, message: Localization.message_alert_message.rawValue~, preferredStyle: .alert)
-                        message.addAction(UIAlertAction(title: Localization.message_destructive_title.rawValue~, style: .destructive) {_ in
+                        let message = UIAlertController(title: "message_alert_title".localized, message: "message_alert_message".localized, preferredStyle: .alert)
+                        message.addAction(UIAlertAction(title: "message_destructive_title".localized, style: .destructive) {_ in
                             self.loginDelegate?.signUp(email, password)
                             self.serviceDelegate?.saveAuth(email, password)
                             self.viewModel?.goToHome()
                         })
                         
-                        message.addAction(UIAlertAction(title: Localization.message_cancel_title.rawValue~, style: .cancel))
+                        message.addAction(UIAlertAction(title: "message_cancel_title".localized, style: .cancel))
                         self.present(message, animated: true)
                     default:
-                        self.ShowAlert(Localization.ShowAlert_RealmSwift.rawValue~, "\(error.localizedDescription)")
+                        self.ShowAlert("ShowAlert_RealmSwift".localized, "\(error.localizedDescription)")
                     }
                 }
             })

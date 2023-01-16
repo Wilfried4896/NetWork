@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController {
     
     private let article: [Article] = Post.shared.data
     var userCurrent: User = User(login: "login", fullName: "Kali-Linux",
-                                 avatar: UIImage(named: "Kali-Linux"), status: Localization.userCurrent_status.rawValue~)
+                                 avatar: UIImage(named: "Kali-Linux"), status: "userCurrent_status".localized)
 
     private lazy var profileTableHederView: UITableView = {
         let profileTable = UITableView(frame: .zero, style: .plain)
@@ -40,7 +40,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .black)
         setUpView()
     }
     
@@ -51,7 +51,7 @@ class ProfileViewController: UIViewController {
     
    private func setUpView() {
        self.view.addSubview(profileTableHederView)
-       
+       navigationController?.navigationBar.barTintColor = UIColor.green
        let gesteTap = UITapGestureRecognizer(target: self, action: #selector(didDoubleTap))
        gesteTap.numberOfTapsRequired = 2
        profileTableHederView.addGestureRecognizer(gesteTap)
@@ -65,13 +65,13 @@ class ProfileViewController: UIViewController {
            case .failure(let error):
                switch error {
                case .noDataAvaible:
-                   print(Localization.noDataAvaible_value.rawValue~)
+                   print("noDataAvaible_value".localized)
                case .invaliddURL:
-                   print(Localization.invaliddURL_value.rawValue~)
+                   print("invaliddURL_value".localized)
                case .dataNotFound:
-                   print(Localization.dataNotFound_value.rawValue~)
+                   print("dataNotFound_value".localized)
                case .noData:
-                   print(Localization.noData_value.rawValue~)
+                   print("noData_value".localized)
                }
            }
        }

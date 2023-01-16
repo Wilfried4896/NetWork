@@ -33,6 +33,8 @@
 		EC704504297413FC008EF1E5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC704506297413FC008EF1E5 /* Localizable.strings */; };
 		EC70450929741686008EF1E5 /* LocalizationShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC70450829741686008EF1E5 /* LocalizationShow.swift */; };
 		EC704517297453E7008EF1E5 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = EC704519297453E7008EF1E5 /* Localizable.stringsdict */; };
+		EC70451C29756493008EF1E5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC70451B29756493008EF1E5 /* StringExtension.swift */; };
+		EC70451F297568D5008EF1E5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC70451E297568D5008EF1E5 /* UIColorExtension.swift */; };
 		EC71AB792923F2CF003EA87A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC71AB782923F2CF003EA87A /* RealmSwift */; };
 		EC71AB7C2923F5A1003EA87A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71AB7B2923F5A1003EA87A /* Model.swift */; };
 		EC71AB7E2923F5CB003EA87A /* ServiceAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71AB7D2923F5CB003EA87A /* ServiceAuth.swift */; };
@@ -111,6 +113,8 @@
 		EC70450829741686008EF1E5 /* LocalizationShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationShow.swift; sourceTree = "<group>"; };
 		EC704518297453E7008EF1E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		EC70451A297453EC008EF1E5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		EC70451B29756493008EF1E5 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		EC70451E297568D5008EF1E5 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		EC71AB752923F12D003EA87A /* Navigation1_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation1_3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC71AB762923F12D003EA87A /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC71AB7B2923F5A1003EA87A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -336,6 +340,15 @@
 			path = StorageService;
 			sourceTree = "<group>";
 		};
+		EC70451D2975684F008EF1E5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EC70451B29756493008EF1E5 /* StringExtension.swift */,
+				EC70451E297568D5008EF1E5 /* UIColorExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		EC71AB7A2923F582003EA87A /* RealmSwift */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +412,7 @@
 		ECDE86B12848935A004A0B1E /* Navigation1_3 */ = {
 			isa = PBXGroup;
 			children = (
+				EC70451D2975684F008EF1E5 /* Extension */,
 				EC71AB7A2923F582003EA87A /* RealmSwift */,
 				ECC2A90B290F1B1E000C0742 /* GoogleService-Info.plist */,
 				EC13E9B928E4E9D300059FB4 /* Application */,
@@ -619,6 +633,8 @@
 				EC49F76328EC3D0600AE1946 /* ProfileCoordinator.swift in Sources */,
 				EC49F76128EC39B800AE1946 /* TabBarCoordinator.swift in Sources */,
 				ECDE86CB2848F6D3004A0B1E /* PostViewController.swift in Sources */,
+				EC70451C29756493008EF1E5 /* StringExtension.swift in Sources */,
+				EC70451F297568D5008EF1E5 /* UIColorExtension.swift in Sources */,
 				EC6D5EAE29031BAA001ED565 /* NetWork.swift in Sources */,
 				EC61A0AD28605895002041E3 /* MyCostumCollectionCell.swift in Sources */,
 				EC49F75F28EC38D600AE1946 /* LoginCoordinator.swift in Sources */,

@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        let navigationBarAppearace = UINavigationBar.appearance()
+
+        navigationBarAppearace.tintColor = UIColor.createColor(lightMode: .systemBlue, darkMode: .white)
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         coordinator = AppCoordinator(window: window)
         
@@ -24,6 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let config = Realm.Configuration(schemaVersion: 1)
         Realm.Configuration.defaultConfiguration = config
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .purple
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.red]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
         return true
     }

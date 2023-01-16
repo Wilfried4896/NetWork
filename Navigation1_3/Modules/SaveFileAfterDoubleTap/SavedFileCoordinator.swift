@@ -19,7 +19,7 @@ class SavedFileCoordinator: Coordinator {
     func start() {
         let vc = SavedFileController()
         vc.coordiantor = self
-        vc.title = Localization.SavedFileController_title.rawValue~
+        vc.title = "SavedFileController_title".localized
         navigation.navigationBar.prefersLargeTitles = true
         navigation.pushViewController(vc, animated: true)
     }

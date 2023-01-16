@@ -57,9 +57,9 @@ class PhotosViewController: UIViewController {
     }
     
     private func setUpphotosCollection() {
-        navigationItem.title = Localization.PhotosViewController_title.rawValue~
+        navigationItem.title = "PhotosViewController_title".localized
         view.addSubview(photosCollectionView)
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .black)
         
 //        imagePublisherFacade.subscribe(self)
 //        imagePublisherFacade.addImagesWithTimer(time: 0.5, repeat: imageGalery.count, userImages: imageGalery)

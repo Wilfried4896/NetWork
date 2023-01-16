@@ -33,7 +33,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     }()
 
     private lazy var setStatusButton: CustomButton = {
-        let show = CustomButton(title: Localization.setStatusButton.rawValue~, bgColor: .systemBlue, tilteColor: .white)
+        let show = CustomButton(title: "setStatusButton".localized, bgColor: UIColor.createColor(lightMode: .systemBlue, darkMode: .systemGray3), tilteColor: .white)
         show.layer.cornerRadius = 10
         show.layer.shadowRadius = 4
         show.layer.borderColor = UIColor.black.cgColor
@@ -45,21 +45,21 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     private lazy var statusTextField: UITextField = {
         let textFiel = UITextField()
         textFiel.font = .systemFont(ofSize: 15, weight: .regular)
-        textFiel.textColor = .black
-        textFiel.backgroundColor = .white
+        textFiel.textColor = UIColor.createColor(lightMode: .black, darkMode: .white)
+        textFiel.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .systemGray)
         textFiel.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
         textFiel.translatesAutoresizingMaskIntoConstraints = false
         textFiel.layer.borderColor = UIColor.black.cgColor
         textFiel.layer.borderWidth = 1
         textFiel.layer.cornerRadius = 10
-        textFiel.placeholder = Localization.statusTextField.rawValue~
+        textFiel.placeholder = "statusTextField".localized
         textFiel.delegate = self
         return textFiel
     }()
 
     lazy var statusLabel: UILabel = {
         let text = UILabel()
-        text.textColor = .gray
+        text.textColor = UIColor.createColor(lightMode: .gray, darkMode: .white)
         text.font = .systemFont(ofSize: 14, weight: .regular)
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
@@ -127,7 +127,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     private func actionButtonsetStatus() {
         setStatusButton.actionButton = {
             guard let statusText = self.statusText else {
-                self.statusLabel.text = Localization.actionButtonsetStatus.rawValue~
+                self.statusLabel.text = "actionButtonsetStatus".localized
                 return
             }
             self.statusLabel.text = statusText
