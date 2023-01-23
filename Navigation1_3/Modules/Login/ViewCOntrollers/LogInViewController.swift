@@ -16,6 +16,7 @@ enum ApiError: Error {
 class LogInViewController: UIViewController {
 
     var loginDelegate: LoginViewControllerDelegate?
+    let localAuthentication = LocalAuthentication()
     var viewModel: LoginViewModel?
     let realm = try! Realm()
     
@@ -27,7 +28,13 @@ class LogInViewController: UIViewController {
         return scrollView
     }()
 
-
+    private lazy var localAuthenticationButton: UIButton = {
+        let localAuthentication = UIButton(type: .system)
+        localAuthentication.translatesAutoresizingMaskIntoConstraints = false
+        localAuthentication.addTarget(self, action: #selector(didTaplocalAuthentication), for: .touchUpInside)
+        return localAuthentication
+    }()
+    
     private lazy var logoVk: UIImageView = {
         let logo = UIImageView()
         logo.image = UIImage(named: "logo")
@@ -80,6 +87,26 @@ class LogInViewController: UIViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.didShowKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.didHidekeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        localAuthentication.authorizationFinished { succes, biometryType, _ in
+            guard succes else {
+                localAuthenticationButton.isHidden = true
+                return
+            }
+            
+            switch biometryType {
+            case .none:
+                localAuthenticationButton.isHidden = true
+            case .touchID:
+                localAuthenticationButton.isHidden = false
+                localAuthenticationButton.setImage(UIImage(systemName: "touchid"), for: .normal)
+            case .FaceID:
+                localAuthenticationButton.isHidden = false
+                localAuthenticationButton.setImage(UIImage(systemName: "faceid"), for: .normal)
+            case .unknown:
+                localAuthenticationButton.isHidden = true
+            }
+        }
     }
     
     
@@ -92,6 +119,7 @@ class LogInViewController: UIViewController {
         scrollView.addSubview(emailLogin)
         scrollView.addSubview(passwordLogin)
         scrollView.addSubview(logInButton)
+        scrollView.addSubview(localAuthenticationButton)
 
         
         actionButton()
@@ -100,14 +128,18 @@ class LogInViewController: UIViewController {
         let area = view.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
+            
             // MARK: - scrollViewLoginConstraint
             scrollView.topAnchor.constraint(equalTo:  area.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: area.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: area.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: area.bottomAnchor),
             
+            localAuthenticationButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
+            localAuthenticationButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            
             // MARK: - logoVkConstraints
-            logoVk.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 120),
+            logoVk.topAnchor.constraint(equalTo: localAuthenticationButton.bottomAnchor, constant: 110),
             logoVk.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             logoVk.heightAnchor.constraint(equalToConstant: 100),
             logoVk.widthAnchor.constraint(equalToConstant: 100),
@@ -169,6 +201,16 @@ class LogInViewController: UIViewController {
     @objc func forcedHidingKeyboard() {
         self.view.endEditing(true)
         self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
+    }
+    
+    @objc func didTaplocalAuthentication() {
+        localAuthentication.authorizeIfPossible {[weak self] success in
+            guard success else {
+                self?.ShowAlert("Error", "FaceID or TouchID")
+                return
+            }
+            self?.viewModel?.goToHome()
+        }
     }
     
     func ShowAlert(_ title: String, _ message: String) {

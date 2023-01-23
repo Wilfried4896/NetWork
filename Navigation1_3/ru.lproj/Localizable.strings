@@ -73,3 +73,16 @@
 
 // ApiError
 "loginError_value" = "Логин или пароль неверный";
+
+
+// BiometricError
+
+"authentificationFailed" = "Не удалось подтвердить вашу личность.";
+"userCancel" = "Вы нажали отмену.";
+"userFallback" = "Вы нажали пароль.";
+"biometryNotAvailable" = "FaceID/Touch ID недоступен.";
+"biometryNotEnrolled" = "Face ID/Touch ID не настроен.";
+"biometryLockout" = "FaceID/Touch ID заблокирован.";
+"unknown" = "Возможно, Face ID/Touch ID не настроен";
+ "localizedReason" = "Подтвердите свою личность";
+"localizedFallbackTitle" = "Введите пароль приложения";

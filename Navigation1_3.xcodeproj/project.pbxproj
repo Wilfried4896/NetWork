@@ -50,6 +50,7 @@
 		EC943E6928F6CFFB00D16B1C /* BruteForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC943E6828F6CFFB00D16B1C /* BruteForce.swift */; };
 		ECA2B88028D9D1F2003677D1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2B87F28D9D1F2003677D1 /* User.swift */; };
 		ECC2A90C290F1B1E000C0742 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECC2A90B290F1B1E000C0742 /* GoogleService-Info.plist */; };
+		ECCB63B2297E96A90044AA41 /* LocalAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB63B1297E96A90044AA41 /* LocalAuthentication.swift */; };
 		ECDE86B32848935A004A0B1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDE86B22848935A004A0B1E /* AppDelegate.swift */; };
 		ECDE86BC2848935C004A0B1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECDE86BB2848935C004A0B1E /* Assets.xcassets */; };
 		ECDE86BF2848935C004A0B1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECDE86BD2848935C004A0B1E /* LaunchScreen.storyboard */; };
@@ -131,6 +132,7 @@
 		EC943E6828F6CFFB00D16B1C /* BruteForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForce.swift; sourceTree = "<group>"; };
 		ECA2B87F28D9D1F2003677D1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ECC2A90B290F1B1E000C0742 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ECCB63B1297E96A90044AA41 /* LocalAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthentication.swift; sourceTree = "<group>"; };
 		ECDE86B22848935A004A0B1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECDE86BB2848935C004A0B1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECDE86BE2848935C004A0B1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		EC13E9BA28E4EA0100059FB4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				ECCB63B1297E96A90044AA41 /* LocalAuthentication.swift */,
 				EC49F76028EC39B800AE1946 /* TabBarCoordinator.swift */,
 				EC75B9E62929818300D8877E /* SaveFileAfterDoubleTap */,
 				EC49F76828EC527F00AE1946 /* Info */,
@@ -654,6 +657,7 @@
 				EC05B67B2903624B00E3CA21 /* NameOfResidencePlaneteCell.swift in Sources */,
 				EC49F75328EB747400AE1946 /* Coordinator.swift in Sources */,
 				EC75B9EE2929871D00D8877E /* DataFromNetwork.xcdatamodeld in Sources */,
+				ECCB63B2297E96A90044AA41 /* LocalAuthentication.swift in Sources */,
 				ECA2B88028D9D1F2003677D1 /* User.swift in Sources */,
 				EC70450929741686008EF1E5 /* LocalizationShow.swift in Sources */,
 				ECDE86D12848F7FD004A0B1E /* FeedViewController.swift in Sources */,
