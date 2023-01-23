@@ -204,9 +204,18 @@ class LogInViewController: UIViewController {
     }
     
     @objc func didTaplocalAuthentication() {
-        localAuthentication.authorizeIfPossible {[weak self] success in
+        localAuthentication.authorizeIfPossible {[weak self] success, biometriType  in
             guard success else {
-                self?.ShowAlert("Error", "FaceID or TouchID")
+                switch biometriType {
+                case .none:
+                    break
+                case .touchID:
+                    self?.ShowAlert("Error", "TouchID")
+                case .FaceID:
+                    self?.ShowAlert("Error", "FaceID")
+                case .unknown:
+                    break
+                }
                 return
             }
             self?.viewModel?.goToHome()

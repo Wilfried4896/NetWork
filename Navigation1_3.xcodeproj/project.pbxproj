@@ -51,6 +51,7 @@
 		ECA2B88028D9D1F2003677D1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2B87F28D9D1F2003677D1 /* User.swift */; };
 		ECC2A90C290F1B1E000C0742 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECC2A90B290F1B1E000C0742 /* GoogleService-Info.plist */; };
 		ECCB63B2297E96A90044AA41 /* LocalAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB63B1297E96A90044AA41 /* LocalAuthentication.swift */; };
+		ECCB63B5297EB7730044AA41 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC71AB762923F12D003EA87A /* StorageService.framework */; };
 		ECDE86B32848935A004A0B1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDE86B22848935A004A0B1E /* AppDelegate.swift */; };
 		ECDE86BC2848935C004A0B1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECDE86BB2848935C004A0B1E /* Assets.xcassets */; };
 		ECDE86BF2848935C004A0B1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECDE86BD2848935C004A0B1E /* LaunchScreen.storyboard */; };
@@ -148,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECCB63B5297EB7730044AA41 /* StorageService.framework in Frameworks */,
 				AD559F7E8AC74830D0A8DE66 /* Pods_StorageService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

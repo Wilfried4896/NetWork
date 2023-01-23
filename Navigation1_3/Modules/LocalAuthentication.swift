@@ -57,13 +57,14 @@ final class LocalAuthentication {
         context.localizedCancelTitle = "Touch me not"
     }
     
-    func authorizeIfPossible(_ authorizationFinished: @escaping (Bool) -> Void) {
+    func authorizeIfPossible(_ authorizationFinished: @escaping (Bool, BiometricType) -> Void) {
         context.evaluatePolicy(policy, localizedReason: localizedReason) { success, _ in
+            let type = self.biometricType(for: self.context.biometryType)
             DispatchQueue.main.async {
                 guard success else {
-                    return authorizationFinished(false)
+                    return authorizationFinished(false, type)
                 }
-                authorizationFinished(true)
+                authorizationFinished(true, self.biometricType(for: self.context.biometryType))
             }
         }
     }
