@@ -1,0 +1,30 @@
+//
+//  CsutomTextField.swift
+//  Navigation1_3
+//
+//  Created by Вилфриэд Оди on 02.10.2022.
+//
+
+import UIKit
+
+class CustomTextField: UITextField {
+    
+    convenience init(placeholderTitle: String? = nil) {
+        self.init()
+        
+        placeholder = placeholderTitle
+        clearButtonMode = .whileEditing
+        layer.borderColor = UIColor.createColor(lightMode: UIColor.systemGray, darkMode: .white).cgColor
+        font = .systemFont(ofSize: 20)
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+}
+
+extension CustomTextField: UITextViewDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
