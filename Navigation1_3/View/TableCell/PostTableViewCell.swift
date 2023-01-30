@@ -75,16 +75,20 @@ class PostTableViewCell: UITableViewCell {
         self.authorLabel.text = nil
         self.descriptionLabel.text = nil
         self.imageArticle.image = nil
-//        self.likesLabel.text = nil
-//        self.viewsLabel.text = nil
+        self.likesLabel.text = nil
+        self.viewsLabel.text = nil
     }
 
     private func setUpView() {
+        stackViewLikesViews.addArrangedSubview(likesLabel)
+        stackViewLikesViews.addArrangedSubview(viewsLabel)
+
         contentView.addSubview(authorLabel)
         contentView.addSubview(imageArticle)
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(waitingAction)
-
+        contentView.addSubview(stackViewLikesViews)
+        
         NSLayoutConstraint.activate([
             // MARK: - authorLabelContraints
             authorLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
@@ -101,17 +105,17 @@ class PostTableViewCell: UITableViewCell {
             descriptionLabel.topAnchor.constraint(equalTo: imageArticle.bottomAnchor, constant: 10),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            //descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
 
             // MARK: - waitingActionContraints
             waitingAction.centerXAnchor.constraint(equalTo: imageArticle.centerXAnchor),
             waitingAction.centerYAnchor.constraint(equalTo: imageArticle.centerYAnchor),
 
 //             MARK: - stackViewLikesViewsContraints
-//            stackViewLikesViews.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
-//            stackViewLikesViews.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-//            stackViewLikesViews.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-//            stackViewLikesViews.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            stackViewLikesViews.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+            stackViewLikesViews.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            stackViewLikesViews.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            stackViewLikesViews.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             
         ])
     }
@@ -124,7 +128,7 @@ class PostTableViewCell: UITableViewCell {
 
     func setUp(with article: Article) {
         self.authorLabel.text = article.author
-        self.imageArticle.image = UIImage(named: "\(article.image ?? "placeholder")")
+        self.imageArticle.image = article.image
         self.descriptionLabel.text = article.description
         self.likesLabel.text = String("Likes: \(article.likes)")
         self.viewsLabel.text = String("Views: \(article.views)")

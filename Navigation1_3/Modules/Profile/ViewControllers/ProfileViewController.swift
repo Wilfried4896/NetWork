@@ -8,6 +8,7 @@
 import UIKit
 import StorageService
 import FirebaseAuth
+import UniformTypeIdentifiers
 
 class ProfileViewController: UIViewController {
     let urlString = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=55c8624285d94dcf975066f96611753a"
@@ -19,9 +20,9 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    private let article: [Article] = Post.shared.data
+    private var article: [Article] = Post.shared.data
     var userCurrent: User = User(login: "login", fullName: "Kali-Linux",
-                                 avatar: UIImage(named: "Kali-Linux"), status: "userCurrent_status".localized)
+                                 avatar: UIImage(named: "fleur"), status: "userCurrent_status".localized)
 
     private lazy var profileTableHederView: UITableView = {
         let profileTable = UITableView(frame: .zero, style: .plain)
@@ -34,6 +35,9 @@ class ProfileViewController: UIViewController {
         profileTable.translatesAutoresizingMaskIntoConstraints = false
         profileTable.delegate = self
         profileTable.dataSource = self
+        profileTable.dropDelegate = self
+        profileTable.dragDelegate = self
+        profileTable.dragInteractionEnabled = true
         profileTable.backgroundColor = .white
         return profileTable
     }()
@@ -109,7 +113,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             case 0:
                 return 1
             case 1:
-            return articleNet.count
+            return article.count
             default:
                 return 0
         }
@@ -126,9 +130,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
                     return cell
                 }
-//                let article = self.article[indexPath.row]
-                let article = articleNet[indexPath.row]
-                cellArticle.configurationNetwork(article)
+                let article = self.article[indexPath.row]
+//                let article = articleNet[indexPath.row]
+                cellArticle.setUp(with: article)
                 return cellArticle
 
             default:
@@ -156,5 +160,42 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         guard indexPath.section == 0 else { return }
         let photoView = PhotosViewController()
         navigationController?.pushViewController(photoView, animated: true)
+    }
+}
+
+extension ProfileViewController: UITableViewDragDelegate, UITableViewDropDelegate {
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        var imagePost = UIImage()
+        if let image = article[indexPath.row].image {
+            imagePost = image
+        } else {
+            imagePost = UIImage(systemName: "house")!
+        }
+       // let imagePost = article[indexPath.row].image
+        let descriptionPost = article[indexPath.row].description
+        
+        let itemProviderDes = NSItemProvider(item: descriptionPost.data(using: .utf8) as? NSData, typeIdentifier: UTType.plainText.identifier)
+//        let itemProviderImg = NSItemProvider(item: imagePost, typeIdentifier: UTType.image.identifier)
+        let itemProviderImg = NSItemProvider(object: imagePost)
+        
+        let drapDescr = UIDragItem(itemProvider: itemProviderDes)
+        let drapImg = UIDragItem(itemProvider: itemProviderImg)
+        
+        return [drapImg, drapDescr]
+    }
+
+    
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+        guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
+        
+        _ = coordinator.session.loadObjects(ofClass: String.self) { item in
+            if item.count > 0 {
+                guard let description = item.first else { return }
+                guard let imgRead: URL = URL(string: item[0]) else { return }
+                print("\(imgRead) \n \(description)")
+                self.article.insert(Article(author: "DrapDrop", image: UIImage(contentsOfFile: imgRead.path), description: description, likes: 0, views: 0), at: destinationIndexPath.row)
+                self.profileTableHederView.reloadData()
+            }
+        }
     }
 }

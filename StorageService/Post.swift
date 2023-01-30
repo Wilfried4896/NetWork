@@ -18,10 +18,18 @@ public struct PostFeed {
 
 public struct Article {
     public var author: String
-    public var image: String?
+    public var image: UIImage?
     public var description: String
     public var likes: Int
     public var views: Int
+    
+    public init(author: String, image: UIImage? = nil, description: String, likes: Int, views: Int) {
+        self.author = author
+        self.image = image
+        self.description = description
+        self.likes = likes
+        self.views = views
+    }
 }
 
 public struct PhotoGame {
@@ -37,7 +45,7 @@ public struct Post {
     public let data: [Article] = [
         Article(
             author: "Jean-Laurent Cassely",
-            image: "Steve-Jobs",
+            image: UIImage(named: "Steve-Jobs"),
             description: "On a déjà parlé ici du danger qui consiste à justifier l’accueil de réfugiés par la mise en avant d’argument utilitaires: principalement économiques —les migrants sont une force de travail utile– et démographiques– ils combleront les trous de nos pyramides des âges de sociétés vieillissantes. Encore une fois, il ne s’agit pas de tenir le discours inverse, affirmant que l’immigration serait globalement un poids pour les sociétés d’accueil, simplement se cacher derrière un discours utilitariste est ambigu et parfois hors sujet.",
             likes: 234,
             views: 330
@@ -45,7 +53,7 @@ public struct Post {
 
         Article(
             author: "Temujin",
-            image: "Kali-Linux",
+            image: UIImage(named: "Kali-Linux"),
             description: "В начале июня состоялся релиз дистрибутива для цифровой криминалистики и тестирования систем безопасности Kali Linux 2021.2.",
             likes: 67,
             views: 322
@@ -53,7 +61,7 @@ public struct Post {
 
         Article(
             author: "Destination Africa",
-            image: "basilique",
+            image: UIImage(named: "basilique"),
             description: "Also called the Yamoussoukro Basilica, the Basilica of Our Lady of Peace is the largest Catholic religious monument in the world. Every year, thousands of people, natives, foreign pilgrims and tourists come to discover the splendor of this majestic building. However, the construction of the Basilica of Our Lady of Peace is marred by many controversies. Discover in this guide 6 things that you probably did not know about this basilica.",
             likes: 400,
             views: 300
