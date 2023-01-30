@@ -1,0 +1,87 @@
+/* 
+  Localizable.strings
+  Navigation1_3
+
+  Created by Вилфриэд Оди on 15.01.2023.
+  
+*/
+
+// MARK: - AppCoordinator
+"appCoordinator_Out_in_App" = "Sign Out";
+
+// MARK: - View
+
+// ProfileHeaderView
+"setStatusButton" = "Set status";
+"statusTextField" = "Set your status";
+"actionButtonsetStatus" = "No status";
+
+// PhotosTableViewCell
+"photoLabel" = "Photos";
+
+// MARK: - Modules
+
+// TabBarCoordinator
+"profilItem_title" = "Profil";
+"feddItem_title" = "Feed";
+"saveFileItem_title" = "OffLine";
+
+// SavedFileCoordinator
+"SavedFileController_title" = "Favorites";
+
+// InfoViewController
+"InfoViewController_title" = "Informations";
+"planeteLabel_text" = "Error: Wrong planets";
+"tableView_title" = "The name of the inhabitants of the planet Tatooine";
+
+// LogInViewController
+//// view
+"emailLogin_placeholder" = "Email of phone";
+"passwordLogin_placeholder" = "Password";
+"logInButton_title" = "Log In";
+"buttonGetPassword_title" = "Pick up a password";
+"ShowAlert_UIAlertAction_title" = "OK";
+
+//// func actionButton
+"logInButton_actionButton_error_title" = "Error";
+"logInButton_actionButton_error_message" = "Email or Password empty";
+
+//// RealmSwift
+"message_alert_title" = "Account not found";
+"message_alert_message" = "Do you want to create it ?";
+"message_destructive_title" = "New account";
+"message_cancel_title" = "Cancel";
+"ShowAlert_RealmSwift" = "Attention";
+
+// PhotosViewController
+"PhotosViewController_title" = "Photos Gallery";
+
+// FeedViewController
+"checkGuessButton_title" = "Verify";
+"textFielFeed_placeholderTitle" = "Enter the secret code";
+"feedViewController_title" = "News File";
+
+// ProfileViewController
+"userCurrent_status" = "Online";
+
+// MARK: - Enum
+// NetWorkError and DownloadError
+"noDataAvaible_value" = "Error Data";
+"invaliddURL_value" = "Wrong link, check the link";
+"dataNotFound_value" = "Data don't found";
+"noData_value" = "Data don't found";
+
+// ApiError
+"loginError_value" = "Login or password is incorrect";
+
+// BiometricError
+
+"authentificationFailed" = "There was a problem verifying your identity.";
+"userCancel" = "You pressed cancel.";
+"userFallback" = "You pressed password.";
+"biometryNotAvailable" = "Face ID/Touch ID is not available.";
+"biometryNotEnrolled" = "Face ID/Touch ID is not set up.";
+"biometryLockout" = "Face ID/Touch ID is locked.";
+"unknown" = "Face ID/Touch ID may not be configured";
+ "localizedReason" = "Verify your Identity";
+"localizedFallbackTitle" = "Enter App Password";
